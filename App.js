@@ -1,6 +1,6 @@
 import React from 'react';
 import { StatusBar, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
-import logo from './assets/adaptive-icon.png';
+import logo from './assets/transparent_icon.png';
 
 export default function App() {
   return (
@@ -11,13 +11,13 @@ export default function App() {
       </View>
 
       {/* Login Text */}
-      <Text style={styles.loginText}>LOGIN</Text>
+      <Text style={styles.loginText}>Login</Text>
       <Text style={styles.greyText}>Please sign in to continue.</Text>
 
       {/* Username Field */}
       <TextInput
         style={styles.input}
-        placeholder="Enter your email"
+        placeholder="Enter your username"
         // You can handle onChangeText event here
         onChangeText={(text) => console.log(text)}
         // Apply bold font style when typing
