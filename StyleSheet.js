@@ -6,6 +6,10 @@ export const styles = StyleSheet.create({
       justifyContent: 'center',
       paddingHorizontal: 20,
     },
+    leftContainer:{
+      flex: 1,
+      paddingHorizontal: 20,
+    },
     backgroundImage: {
       flex: 1,
       resizeMode: 'cover',
@@ -80,6 +84,9 @@ export const styles = StyleSheet.create({
     },
     centeredText: {
       textAlign: 'center',
+    },
+    leftText:{
+      textAlign: 'left',
     },
     signUpText: {
       color: 'blue',
