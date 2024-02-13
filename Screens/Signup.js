@@ -14,13 +14,27 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
         stateUpdater(error);
         setTimeout(() => {
             stateUpdater('')
-        }, 2500);
+        }, 8500);
     };
 
     // Method to validate email
     const isValidEmail = (value) => {
         const regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
         return regex.test(value);
+    };
+
+    // Method to validate password
+    const isValidPassword = (value) => {
+        if (value.length < 8) {
+            return false;
+        }
+        if (!/[A-Z]/.test(value) || !/[a-z]/.test(value)) {
+            return false;
+        }
+        if (!/[^A-Za-z0-9]/.test(value)) {
+            return false;
+        }
+        return true;
     };
 
     // Userinfo dictionary
@@ -52,7 +66,7 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
         // Validates email format
         if (!isValidEmail(email)) return updateError('Email is invalid', setError);
         // Validates the password, ensuring that it has at least 8 characters
-        if (!password.trim() || password.length < 8) return updateError('Invalid password, password requires at least 8 characters', setError);
+        if (!password.trim() || !isValidPassword(password)) return updateError('Password must be 8 characters long, with one upper and one lower case letter, and one special character.', setError);
         // Ensures that the confirmation password was properly entered
         if (password !== confirmPassword) return updateError('Password does not match', setError);
         
