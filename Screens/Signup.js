@@ -89,31 +89,33 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
         </View>
 
         <View style={styles.leftContainer}>
-            <Text>Enter a Username</Text>
             <TextInput
               style={styles.input}
+              placeholder="Enter a Username"
               autoCapitalize='none'
               value={username}
               onChangeText={(value) => handleOnChangeText(value, 'username')}
             />
-            <Text>Enter an Email</Text>
             <TextInput 
               style={styles.input}
+              placeholder='Enter an Email'
               autoCapitalize='none'
               value={email}
               onChangeText={(value) => handleOnChangeText(value, 'email')}
             />
-            <Text>Enter a Password</Text>
+
             <TextInput
               style={styles.input}
+              placeholder='Enter a Password'
               autoCapitalize='none'
               secureTextEntry={true}
               value={password}
               onChangeText={(value) => handleOnChangeText(value, 'password')}
             />
-            <Text>Re-enter Your Password</Text>
+
             <TextInput
               style={styles.input}
+              placeholder='Re-enter Your Password'
               autoCapitalize='none'
               secureTextEntry={true}
               value={confirmPassword}
@@ -126,8 +128,9 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
             <TouchableOpacity 
               style={styles.loginButton}
               onPress={submit}>
-                <Text style={styles.loginButtonText}>REGISTER</Text>
-            </TouchableOpacity>            
+                <Text style={styles.loginButtonText}>Sign Up</Text>
+            </TouchableOpacity>     
+            <Text>Already have an account?</Text>   
         </View>
         </ImageBackground>
     );

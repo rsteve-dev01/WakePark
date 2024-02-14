@@ -9,6 +9,8 @@ export const styles = StyleSheet.create({
     leftContainer:{
       flex: 1,
       paddingHorizontal: 20,
+      width: "100%",
+      height: '100%',
     },
     backgroundImage: {
       flex: 1,
