@@ -9,14 +9,6 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
         return Object.values(obj).every(value => value.trim());
     };
 
-    // Method to update and change the error, alongside add time duration.
-    const updateError = (error, stateUpdater) => {
-        stateUpdater(error);
-        setTimeout(() => {
-            stateUpdater('')
-        }, 8500);
-    };
-
     // Method to validate email
     const isValidEmail = (value) => {
         const regex = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -51,6 +43,10 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
     // Variables for each field value
     const {username, email, password, confirmPassword} = userInfo;
 
+    // Show and Hide password, with 1 being password and 2 being confirm password
+    const [isSecureEntry1, setIsSecureEntry1] = useState(true);
+    const [isSecureEntry2, setIsSecureEntry2] = useState(true);
+
     // Method to handle text input changes
     const handleOnChangeText = (value, fieldValue) => {
         console.log(value, fieldValue);
@@ -60,15 +56,15 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
     // Validation of all field values to ensure all fields were properly filled out
     const isValid = () => {
         // Validates that every field is filled in
-        if (!isValidObjField(userInfo)) return updateError('All fields are required to proceed', setError);
+        if (!isValidObjField(userInfo)) return setError('All fields are required to proceed');
         // Validates the username, ensuring that it has at least 3 characters
-        if (!username.trim() || username.length < 3) return updateError('Invalid username, username requires at least 3 characters', setError);
+        if (!username.trim() || username.length < 3) return setError('Invalid username, username requires at least 3 characters');
         // Validates email format
-        if (!isValidEmail(email)) return updateError('Email is invalid', setError);
+        if (!isValidEmail(email)) return setError('Email is invalid');
         // Validates the password, ensuring that it has at least 8 characters
-        if (!password.trim() || !isValidPassword(password)) return updateError('Password must be 8 characters long, with one upper and one lower case letter, and one special character.', setError);
+        if (!password.trim() || !isValidPassword(password)) return setError('Password must be 8 characters long, with one upper and one lower case letter, and one special character.');
         // Ensures that the confirmation password was properly entered
-        if (password !== confirmPassword) return updateError('Password does not match', setError);
+        if (password !== confirmPassword) return setError('Password does not match');
         
         return true;
     };
@@ -77,6 +73,7 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
     const submit = () => {
         if (isValid()) {
             console.log(userInfo);
+            setError('');
         }
     };
 
@@ -87,8 +84,8 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
             <Image source={require('../assets/transparent_icon.png')} style={styles.logo}/>
             <Text style={[styles.loginText]}>Register</Text>
         </View>
-
         <View style={styles.leftContainer}>
+            {error ? <Text style={{color: 'red'}}>{error}</Text>: null}
             <Text>Enter a Username</Text>
             <TextInput
               style={styles.input}
@@ -104,22 +101,35 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
               onChangeText={(value) => handleOnChangeText(value, 'email')}
             />
             <Text>Enter a Password</Text>
+            {/* Temporary show/hide button */}
+            <TouchableOpacity
+                onPress={() => {
+                  setIsSecureEntry1((prev) => !prev);
+                }}>
+              <Text>{isSecureEntry1 ? 'Show' : 'Hide'}</Text>
+            </TouchableOpacity>
             <TextInput
               style={styles.input}
               autoCapitalize='none'
-              secureTextEntry={true}
+              secureTextEntry={isSecureEntry1}
               value={password}
               onChangeText={(value) => handleOnChangeText(value, 'password')}
             />
             <Text>Re-enter Your Password</Text>
+            {/* Temporary show/hide button */}
+            <TouchableOpacity
+                onPress={() => {
+                  setIsSecureEntry2((prev) => !prev);
+                }}>
+              <Text>{isSecureEntry2 ? 'Show' : 'Hide'}</Text>
+            </TouchableOpacity>
             <TextInput
               style={styles.input}
               autoCapitalize='none'
-              secureTextEntry={true}
+              secureTextEntry={isSecureEntry2}
               value={confirmPassword}
               onChangeText={(value) => handleOnChangeText(value, 'confirmPassword')}
             />
-            {error ? <Text style={{color: 'red'}}>{error}</Text>: null}
         </View>
 
         <View style={styles.container}>    
