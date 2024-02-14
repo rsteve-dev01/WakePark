@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StatusBar, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet.js'; // corrected import
 
 export const SignupScreen = ({ navigation }) => { // destructuring navigation from props
@@ -7,14 +7,6 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
     // Returns a validation of each field value of sign-up
     const isValidObjField = (obj) => {
         return Object.values(obj).every(value => value.trim());
-    };
-
-    // Method to update and change the error, alongside add time duration.
-    const updateError = (error, stateUpdater) => {
-        stateUpdater(error);
-        setTimeout(() => {
-            stateUpdater('')
-        }, 8500);
     };
 
     // Method to validate email
@@ -51,6 +43,10 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
     // Variables for each field value
     const {username, email, password, confirmPassword} = userInfo;
 
+    // Show and Hide password, with 1 being password and 2 being confirm password
+    const [isSecureEntry1, setIsSecureEntry1] = useState(true);
+    const [isSecureEntry2, setIsSecureEntry2] = useState(true);
+
     // Method to handle text input changes
     const handleOnChangeText = (value, fieldValue) => {
         console.log(value, fieldValue);
@@ -60,15 +56,15 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
     // Validation of all field values to ensure all fields were properly filled out
     const isValid = () => {
         // Validates that every field is filled in
-        if (!isValidObjField(userInfo)) return updateError('All fields are required to proceed', setError);
+        if (!isValidObjField(userInfo)) return setError('All fields are required to proceed');
         // Validates the username, ensuring that it has at least 3 characters
-        if (!username.trim() || username.length < 3) return updateError('Invalid username, username requires at least 3 characters', setError);
+        if (!username.trim() || username.length < 3) return setError('Invalid username, username requires at least 3 characters');
         // Validates email format
-        if (!isValidEmail(email)) return updateError('Email is invalid', setError);
+        if (!isValidEmail(email)) return setError('Email is invalid');
         // Validates the password, ensuring that it has at least 8 characters
-        if (!password.trim() || !isValidPassword(password)) return updateError('Password must be 8 characters long, with one upper and one lower case letter, and one special character.', setError);
+        if (!password.trim() || !isValidPassword(password)) return setError('Password must be 8 characters long, with one upper and one lower case letter, and one special character.');
         // Ensures that the confirmation password was properly entered
-        if (password !== confirmPassword) return updateError('Password does not match', setError);
+        if (password !== confirmPassword) return setError('Password does not match');
         
         return true;
     };
@@ -77,6 +73,7 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
     const submit = () => {
         if (isValid()) {
             console.log(userInfo);
+            setError('');
         }
     };
 
@@ -85,10 +82,10 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
         
         <View style={styles.container}>
             <Image source={require('../assets/transparent_icon.png')} style={styles.logo}/>
-            <Text style={[styles.loginText]}>Register</Text>
+            <Text style={[styles.loginText]}>Create Account</Text>
         </View>
-
         <View style={styles.leftContainer}>
+            {error ? <Text style={{color: 'red'}}>{error}</Text>: null}
             <TextInput
               style={styles.input}
               placeholder="Enter a Username"
@@ -103,34 +100,53 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
               value={email}
               onChangeText={(value) => handleOnChangeText(value, 'email')}
             />
-
+            {/* Temporary show/hide button */}
+            <TouchableOpacity
+                onPress={() => {
+                  setIsSecureEntry1((prev) => !prev);
+                }}>
+              <Text>{isSecureEntry1 ? 'Show' : 'Hide'}</Text>
+            </TouchableOpacity>
             <TextInput
               style={styles.input}
               placeholder='Enter a Password'
               autoCapitalize='none'
-              secureTextEntry={true}
+              secureTextEntry={isSecureEntry1}
               value={password}
               onChangeText={(value) => handleOnChangeText(value, 'password')}
             />
-
+            {/* Temporary show/hide button */}
+            <TouchableOpacity
+                onPress={() => {
+                  setIsSecureEntry2((prev) => !prev);
+                }}>
+              <Text>{isSecureEntry2 ? 'Show' : 'Hide'}</Text>
+            </TouchableOpacity>
             <TextInput
               style={styles.input}
               placeholder='Re-enter Your Password'
               autoCapitalize='none'
-              secureTextEntry={true}
+              secureTextEntry={isSecureEntry2}
               value={confirmPassword}
               onChangeText={(value) => handleOnChangeText(value, 'confirmPassword')}
             />
-            {error ? <Text style={{color: 'red'}}>{error}</Text>: null}
         </View>
+
 
         <View style={styles.container}>    
             <TouchableOpacity 
               style={styles.loginButton}
               onPress={submit}>
                 <Text style={styles.loginButtonText}>Sign Up</Text>
-            </TouchableOpacity>     
-            <Text>Already have an account?</Text>   
+            </TouchableOpacity>    
+            <View style={styles.signUpLink}>
+                <Text>Already have an account? </Text>
+                    <TouchableOpacity>
+                        <Text
+                            onPress={() => navigation.navigate("Login")}
+                            style={styles.signUpText}>Sign In</Text>
+                    </TouchableOpacity>
+            </View> 
         </View>
         </ImageBackground>
     );

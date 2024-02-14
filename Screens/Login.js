@@ -43,7 +43,7 @@ export default function LoginScreen({navigation}) {
 
         {/* The LOGIN Button */}
         <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.loginButtonText}>LOGIN</Text>
+          <Text style={styles.loginButtonText}>Sign In</Text>
         </TouchableOpacity>
 
         {/* This is the Sign Up Link */}

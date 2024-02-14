@@ -9,8 +9,9 @@ export const styles = StyleSheet.create({
     leftContainer:{
       flex: 1,
       paddingHorizontal: 20,
-      width: "100%",
-      height: '100%',
+    },
+    adjacentContainer:{
+      flexDirection: "row"
     },
     backgroundImage: {
       flex: 1,
@@ -92,5 +93,6 @@ export const styles = StyleSheet.create({
     },
     signUpText: {
       color: 'blue',
+      textDecorationLine: 'underline'
     },
   });
