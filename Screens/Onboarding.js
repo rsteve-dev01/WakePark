@@ -121,7 +121,7 @@ export default function OnboardingScreen() {
                 renderSkipButton={() => buttonLabel("Skip")}
                 renderDoneButton={() => buttonLabel("Done")}
                 onDone={() => {
-                    navigation.navigate('SignInScreen');
+                    navigation.navigate('Login');
                 }}
             />
         )
