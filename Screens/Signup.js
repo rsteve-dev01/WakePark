@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet.js'; // corrected import
 
+
 export const SignupScreen = ({ navigation }) => { // destructuring navigation from props
 
     // Returns a validation of each field value of sign-up
