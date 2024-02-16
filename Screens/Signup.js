@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet.js'; // corrected import
+import { auth, createUserWithEmailAndPassword, updateProfile } from "../database/firebase";
 
 
 export const SignupScreen = ({ navigation }) => { // destructuring navigation from props
@@ -38,6 +39,9 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
         confirmPassword: "",
     });
 
+    // Firebase Signup Handling
+    
+
     // Error value
     const [error, setError] = useState('');
 
@@ -71,10 +75,28 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
     };
 
     // Method to submit the form when finished and valid
-    const submit = () => {
+
+    const handleSignUp = async () => {
         if (isValid()) {
-            console.log(userInfo);
-            setError('');
+            try {
+                // Create a user with email and password
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+    
+                // Update user profile (you can customize this based on your app's requirements)
+                await updateProfile(userCredential.user, {
+                    displayName: username,
+                });
+    
+                // Log the user in or perform other actions as needed
+                console.log("User successfully signed up:", userCredential.user);
+                
+                // Clear any previous errors
+                setError('');
+            } catch (error) {
+                // Handle Firebase authentication errors
+                setError(error.message);
+                console.error("Firebase authentication error:", error);
+            }
         }
     };
 
@@ -137,7 +159,8 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
         <View style={styles.container}>    
             <TouchableOpacity 
               style={styles.loginButton}
-              onPress={submit}>
+              // ONPRESS SIGN UP BUTTON -------------------------------------------------
+              onPress={handleSignUp}> 
                 <Text style={styles.loginButtonText}>Sign Up</Text>
             </TouchableOpacity>    
             <View style={styles.signUpLink}>
