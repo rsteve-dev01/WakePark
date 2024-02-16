@@ -14,13 +14,20 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SignupScreen from "./Screens/Signup";
 import LoginScreen from "./Screens/Login";
+import OnboardingScreen from './Screens/Onboarding';
 
 const Stack = createNativeStackNavigator();
 
 export default function App(){
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Login">
+            <Stack.Navigator initialRouteName="OnboardingScreen"
+            // Hide all headers on the pages
+            screenOptions = {{
+                headerShown: false
+            }}
+            >
+                <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
                 <Stack.Screen name="Login" component={LoginScreen}/>
                 <Stack.Screen name="Signup" component={SignupScreen}/>
             </Stack.Navigator>
