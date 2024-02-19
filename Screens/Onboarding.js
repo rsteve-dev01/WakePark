@@ -37,38 +37,50 @@ export default function OnboardingScreen() {
     const navigation = useNavigation();
     const [showHomePage] = useState(false);
 
-    const buttonLabel = (label) => {
+    const buttonLabel = (label, onPress, style) => {
         return (
             <View style={{
                 padding: 12,
+                ...style,
             }}>
                 <Text style={{
                     fontWeight: 'bold',
-                }}>
+                    color: style.color || 'black',
+                }} onPress={onPress}>
                     {label}
                 </Text>
             </View>
         )
     }
 
+    const renderButton = (index) => {
+        if (index === slides.length - 1) {
+            // Last slide
+            return buttonLabel("Get Started", () => {
+                navigation.navigate('Login');
+            }, styles.getStartedBtn);
+        } else {
+            // Other slides
+            return null;
+        }
+    }
+
     if (!showHomePage) {
         return (
             <AppIntroSlider
                 data={slides}
-                renderItem={({item}) => {
+                renderItem={({item, index }) => {
                     return (
                         <View style={{
                             flex: 1,
                             alignItems: 'center',
-                            padding: 15,
-                            margin: 10,
-                            marginTop: 50,
                         }}>
                             <Image 
                                 source={require('../images/pinpoint.png')} 
                                 style={{
-                                    width: 40,
-                                    height: 40,
+                                    width: '10%',
+                                    height: '5%',
+                                    marginTop: 100,
                                     
                                 }}
                             />
@@ -78,37 +90,41 @@ export default function OnboardingScreen() {
                                 margin: 5,
                                 textAlign: 'center', 
                                 fontSize: SIZES.h3, 
+                                padding: 20,
                             }}>
                                 {item.title}
                             </Text>
                             <Image
                                 source={item.image}
                                 style={{
-                                    width: 300,
-                                    height: 300,
-                                    marginTop: -20,
-                                    marginBottom: -30,
+                                    marginTop: -250,
+                                    marginBottom: -250,
+                                    width: '100%',
+                                    height: '100%',
+                                    
                                 }}
                                 resizeMode='contain'
                             />
                             <Text style={{
                                 fontWeight: 'bold',
                                 fontStyle: 'italic',
-                                margin: 5,
+                                padding: 10,
                             }}>
                                 {item.heading}
                             </Text>
                             <Text style={{
-                                margin: 10,
+                                marginTop: 10,
                             }}>
                                 {item.subtitle}
                             </Text>
                             <Text style={{
                                 color: COLORS.grey,
                                 textAlign: 'center',
+                                padding: 20,
                             }}>
                                 {item.description}
                             </Text>
+                            {renderButton(index)}
                         </View>
                     )
                 }}
@@ -119,10 +135,6 @@ export default function OnboardingScreen() {
                 showSkipButton
                 renderNextButton={() => buttonLabel("Next")}
                 renderSkipButton={() => buttonLabel("Skip")}
-                renderDoneButton={() => buttonLabel("Done")}
-                onDone={() => {
-                    navigation.navigate('Login');
-                }}
             />
         )
     }
@@ -146,5 +158,13 @@ const styles = StyleSheet.create ({
         fontSize: 24,
         fontWeight: "bold",
         marginBottom: 16,
+    },
+
+    getStartedBtn: {
+        backgroundColor: '#93B4F9', 
+        marginTop: -50,
+        padding: 20,
+        borderRadius: 10,
+        color: 'white',
     },
 });
