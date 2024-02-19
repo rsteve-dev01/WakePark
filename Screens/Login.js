@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet';
 
-
+// Need to be changed to the SignUpScreen Function (remove default)
 export default function LoginScreen({navigation}) {
   return (
     // This is the Background Image

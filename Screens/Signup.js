@@ -38,8 +38,6 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
         password: "",
         confirmPassword: "",
     });
-
-    // Firebase Signup Handling
     
 
     // Error value
@@ -76,6 +74,7 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
 
     // Method to submit the form when finished and valid
 
+    // Firebase Signup Handling **UPDATED**
     const handleSignUp = async () => {
         if (isValid()) {
             try {
