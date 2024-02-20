@@ -45,7 +45,7 @@ export default function OnboardingScreen() {
             }}>
                 <Text style={{
                     fontWeight: 'bold',
-                    color: style.color || 'black',
+                    color: style && style.color ? style.color : 'black',
                 }} onPress={onPress}>
                     {label}
                 </Text>
@@ -74,34 +74,34 @@ export default function OnboardingScreen() {
                         <View style={{
                             flex: 1,
                             alignItems: 'center',
+                            justifyContent: 'center',
+                            padding: 15,
+                            
                         }}>
                             <Image 
                                 source={require('../images/pinpoint.png')} 
                                 style={{
                                     width: '10%',
-                                    height: '5%',
-                                    marginTop: 100,
-                                    
+                                    height: 50,
+                                    resizeMode: 'contain',
                                 }}
                             />
                             <Text style={{
                                 fontWeight: 'bold',
                                 color: '#000000',
-                                margin: 5,
                                 textAlign: 'center', 
                                 fontSize: SIZES.h3, 
-                                padding: 20,
+                                padding: 10,
                             }}>
                                 {item.title}
                             </Text>
                             <Image
                                 source={item.image}
                                 style={{
-                                    marginTop: -250,
-                                    marginBottom: -250,
+                                    transform: [{ translateY: -50 }],
+                                    marginBottom: -120,
                                     width: '100%',
-                                    height: '100%',
-                                    
+                                    height: 400,
                                 }}
                                 resizeMode='contain'
                             />
@@ -113,7 +113,7 @@ export default function OnboardingScreen() {
                                 {item.heading}
                             </Text>
                             <Text style={{
-                                marginTop: 10,
+                                
                             }}>
                                 {item.subtitle}
                             </Text>
@@ -135,6 +135,7 @@ export default function OnboardingScreen() {
                 showSkipButton
                 renderNextButton={() => buttonLabel("Next")}
                 renderSkipButton={() => buttonLabel("Skip")}
+                renderDoneButton={() => null}
             />
         )
     }
