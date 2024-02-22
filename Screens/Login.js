@@ -37,7 +37,7 @@ export default function LoginScreen({navigation}) {
           />
           {/* The actual Forgot Password Button */}
           <TouchableOpacity style={styles.forgotButton}>
-            <Text style={styles.forgotText}>FORGOT</Text>
+            <Text style={styles.forgotText} onPress={() => navigation.navigate('ForgotPassword')}>FORGOT</Text>
           </TouchableOpacity>
         </View>
 

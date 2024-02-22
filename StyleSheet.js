@@ -95,4 +95,14 @@ export const styles = StyleSheet.create({
       color: 'blue',
       textDecorationLine: 'underline'
     },
+    backButton: {
+      position: 'absolute',
+      top: 40,
+      left: 20,
+      zIndex: 10, 
+    },
+    backIcon: {
+      width: 30, 
+      height: 30, 
+    },
   });
