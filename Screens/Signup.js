@@ -3,8 +3,11 @@ import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, Text, View, T
 import {styles} from '../StyleSheet.js'; // corrected import
 import { auth, createUserWithEmailAndPassword, updateProfile } from "../database/firebase";
 
+import { useNavigation } from '@react-navigation/native';
 
-export const SignupScreen = ({ navigation }) => { // destructuring navigation from props
+
+export const SignupScreen = () => { // destructuring navigation from props
+    const navigation = useNavigation();
 
     // Returns a validation of each field value of sign-up
     const isValidObjField = (obj) => {
@@ -77,27 +80,24 @@ export const SignupScreen = ({ navigation }) => { // destructuring navigation fr
     // Firebase Signup Handling **UPDATED**
     const handleSignUp = async () => {
         if (isValid()) {
-            try {
-                // Create a user with email and password
-                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    
-                // Update user profile (you can customize this based on your app's requirements)
-                await updateProfile(userCredential.user, {
-                    displayName: username,
-                });
-    
-                // Log the user in or perform other actions as needed
-                console.log("User successfully signed up:", userCredential.user);
-                
-                // Clear any previous errors
-                setError('');
-            } catch (error) {
-                // Handle Firebase authentication errors
-                setError(error.message);
-                console.error("Firebase authentication error:", error);
-            }
+          try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      
+            await updateProfile(userCredential.user, {
+              displayName: username,
+            });
+      
+            console.log("User successfully signed up:", userCredential.user);
+            setError('');
+      
+            // Use navigation here to navigate to the homepage
+            navigation.navigate('HomePage');
+          } catch (error) {
+            setError(error.message);
+            console.error("Firebase authentication error:", error);
+          }
         }
-    };
+      };
 
     return (
         <ImageBackground source={require('../assets/Background.jpg')} style={styles.backgroundImage}>
