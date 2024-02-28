@@ -3,7 +3,7 @@ import { StatusBar, ImageBackground, Image, StyleSheet, Text, View, TextInput, T
 import {styles} from '../StyleSheet';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { signInWithEmailAndPassword } from '../database/firebase';
+import { auth, signInWithEmailAndPassword } from '../database/firebase';
 
 // Need to be changed to the SignUpScreen Function (remove default)
 export default function LoginScreen() {
@@ -19,7 +19,7 @@ export default function LoginScreen() {
         return;
       }
 
-      const userCredential = await signInWithEmailAndPassword(email, password);
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
       // After successful login, you can navigate to the homepage
       navigation.navigate('HomePage');
