@@ -105,4 +105,13 @@ export const styles = StyleSheet.create({
       width: 30, 
       height: 30, 
     },
+    fgpIcon: {
+      width: '30%',
+      height: '20%',
+      margin: 20,
+    },
+    marginText: {
+      margin: 10,
+      fontSize: 16,
+    },
   });

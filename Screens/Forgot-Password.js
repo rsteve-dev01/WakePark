@@ -37,9 +37,10 @@ export default function ForgotPassword() {
         <TouchableOpacity style={styles.backButton} onPress={handleBackToLogin}>
           <Image source={require('../assets/back_arrow.png')} style={styles.backIcon} />
         </TouchableOpacity>
-        <Image source={require('../assets/transparent_icon.png')} style={styles.logo} />
+        <Text style={[styles.loginText, styles.centeredText]} >Forgot Password</Text>
+        <Image source={require('../images/fgp_icon.png')} style={styles.fgpIcon} />
 
-        <Text style={[styles.greyText, styles.centeredText]}>Enter your email to reset your password.</Text>
+        <Text style={[styles.marginText, styles.centeredText]}>Enter Your Email To Receive A Code</Text>
 
         <TextInput
           style={styles.input}
@@ -50,12 +51,8 @@ export default function ForgotPassword() {
         />
 
         <TouchableOpacity style={styles.loginButton} onPress={handleResetPassword}>
-          <Text style={styles.loginButtonText}>RESET PASSWORD</Text>
+          <Text style={styles.loginButtonText}>SEND</Text>
         </TouchableOpacity>
-
-        <View style={styles.signUpLink}>
-          <TouchableOpacity onPress={handleBackToLogin}><Text style={styles.signUpText}>Back to Login</Text></TouchableOpacity>
-        </View>
 
         <StatusBar style="auto" />
       </View>
