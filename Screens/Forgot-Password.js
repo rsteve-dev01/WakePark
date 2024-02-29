@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { StatusBar, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../StyleSheet';
-import { sendPasswordResetEmail } from '../database/firebase'; // Update the path accordingly
+import { auth, sendPasswordResetEmail } from '../database/firebase'; // Update the path accordingly
 import { Alert } from 'react-native';
 
 export default function ForgotPassword() {
@@ -21,7 +21,7 @@ export default function ForgotPassword() {
 
     try {
       // Send reset email from Firebase
-      await sendPasswordResetEmail(email);
+      await sendPasswordResetEmail(auth, email);
 
       // Navigate to the VerifyEmail screen with the email
       navigation.navigate('VerifyEmail', { email });
