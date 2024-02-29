@@ -1,13 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StatusBar, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../StyleSheet';
+import { sendPasswordResetEmail } from '../database/firebase'; // Update the path accordingly
+import { Alert } from 'react-native';
 
 export default function ForgotPassword() {
   const navigation = useNavigation();
-  
+  const [email, setEmail] = useState('');
+
   const handleBackToLogin = () => {
-    navigation.navigate('Login'); // Navigate back to the 'Login' screen
+    navigation.navigate('Login');
+  };
+
+  const handleResetPassword = async () => {
+    if (!email) {
+      // Handle empty email case
+      return;
+    }
+
+    try {
+      // Send reset email from Firebase
+      await sendPasswordResetEmail(email);
+
+      // Navigate to the VerifyEmail screen with the email
+      navigation.navigate('VerifyEmail', { email });
+    } catch (error) {
+      // Handle error
+      console.error('Error sending reset email:', error);
+      Alert.alert('Error sending reset email. Please try again.');
+    }
   };
 
   return (
@@ -23,10 +45,12 @@ export default function ForgotPassword() {
         <TextInput
           style={styles.input}
           placeholder="Enter your email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
           fontWeight={'bold'}
         />
 
-        <TouchableOpacity style={styles.loginButton}>
+        <TouchableOpacity style={styles.loginButton} onPress={handleResetPassword}>
           <Text style={styles.loginButtonText}>RESET PASSWORD</Text>
         </TouchableOpacity>
 
