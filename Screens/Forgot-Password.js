@@ -23,8 +23,7 @@ export default function ForgotPassword() {
       // Send reset email from Firebase
       await sendPasswordResetEmail(auth, email);
 
-      // Navigate to the VerifyEmail screen with the email
-      navigation.navigate('VerifyEmail', { email });
+      
     } catch (error) {
       // Handle error
       console.error('Error sending reset email:', error);
