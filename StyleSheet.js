@@ -114,4 +114,19 @@ export const styles = StyleSheet.create({
       margin: 10,
       fontSize: 16,
     },
+    container: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    logo: {
+      width: 200,
+      height: 200,
+      marginBottom: 20,
+    },
+    linkText: {
+      fontsize: 18,
+      color: 'blue',
+      textDecorationLine: 'underline',
+    },
   });
