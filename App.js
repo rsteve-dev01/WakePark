@@ -17,13 +17,14 @@ import LoginScreen from "./Screens/Login";
 import OnboardingScreen from "./Screens/Onboarding";
 import ForgotPassword from './Screens/Forgot-Password';
 import HomePage from './Screens/Homepage';
+import MyParkingSpots from './Screens/MyParkingSpots'
 
 const Stack = createNativeStackNavigator();
 
 export default function App(){
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="OnboardingScreen"
+            <Stack.Navigator initialRouteName="MyParkingSpots"
             // Hide all headers on the pages
             screenOptions = {{
                 headerShown: false
@@ -34,6 +35,7 @@ export default function App(){
                 <Stack.Screen name="Signup" component={SignupScreen}/>
                 <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
                 <Stack.Screen name="HomePage" component={HomePage} />
+                <Stack.Screen name="MyParkingSpots" component={MyParkingSpots} />
             </Stack.Navigator>
         </NavigationContainer>
     )

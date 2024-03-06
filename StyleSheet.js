@@ -130,3 +130,18 @@ export const styles = StyleSheet.create({
       textDecorationLine: 'underline',
     },
   });
+
+  export const myParkingStyles = StyleSheet.create({
+    buttonIcon: {
+        width: 5,
+        height: 5,
+        marginRight: 10,
+    },
+    supportImage: {
+        width: 10,
+        height: 10,
+        position: 'absolute',
+        bottom: 10,
+        right: 10,
+    },
+});
