@@ -75,10 +75,24 @@ export const styles = StyleSheet.create({
       alignItems: 'center',
       marginTop: 20,
     },
+    parkingButton: {
+      backgroundColor: 'dimgrey',
+      borderRadius: 50,
+      paddingVertical: 15,
+      paddingHorizontal: 20,
+      alignItems: 'center',
+      marginTop: 20,
+    },
     loginButtonText: {
       color: 'white',
       fontSize: 16,
       fontWeight: 'bold',
+    },
+    parkingButtonText: {
+      color: 'white',
+      fontSize: 14,
+      fontWeight: 'bold',
+      fontStyle: 'italic'
     },
     signUpLink: {
       flexDirection: 'row',

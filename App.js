@@ -17,6 +17,7 @@ import LoginScreen from "./Screens/Login";
 import OnboardingScreen from "./Screens/Onboarding";
 import ForgotPassword from './Screens/Forgot-Password';
 import HomePage from './Screens/Homepage';
+import ParkingSpots from './Screens/ParkingSpots';
 
 const Stack = createNativeStackNavigator();
 
@@ -34,6 +35,7 @@ export default function App(){
                 <Stack.Screen name="Signup" component={SignupScreen}/>
                 <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
                 <Stack.Screen name="HomePage" component={HomePage} />
+                <Stack.Screen name="ParkingSpots" component={ParkingSpots}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
