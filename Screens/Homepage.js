@@ -32,10 +32,10 @@ import { View, Text, Image, ImageBackground, StyleSheet } from 'react-native';
 export const HomePage = ({ navigation }) => {
     return (
         <ImageBackground
-            source={require('/Users/shreyamukherjee/Documents/WakeTech/Spring_2024/CSC289/WakePark/assets/Background.jpg')} 
+            source={require('../assets/Background.jpg')} 
             style={styles.background}>
             <View style={styles.container}>
-                <Image source={require('/Users/shreyamukherjee/Documents/WakeTech/Spring_2024/CSC289/WakePark/images/homepage_pic.png')}
+                <Image source={require('../images/homepage_pic.png')}
                 style={styles.image}/>
             <Text>Cheapest and Closest Parking Spots</Text>
             <Text>Contact Us</Text>
