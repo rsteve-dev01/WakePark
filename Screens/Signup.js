@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { SafeAreaView, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet.js'; // corrected import
+import { signUpStyles } from '../Signup-StyleSheet.js';
 import { auth, createUserWithEmailAndPassword, updateProfile } from "../database/firebase";
-
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { useNavigation } from '@react-navigation/native';
 
 
@@ -75,8 +76,6 @@ export const SignupScreen = () => { // destructuring navigation from props
         return true;
     };
 
-    // Method to submit the form when finished and valid
-
     // Firebase Signup Handling **UPDATED**
     const handleSignUp = async () => {
         if (isValid()) {
@@ -101,76 +100,87 @@ export const SignupScreen = () => { // destructuring navigation from props
 
     return (
         <ImageBackground source={require('../assets/Background.jpg')} style={styles.backgroundImage}>
-        
-        <View style={styles.container}>
-            <Image source={require('../assets/transparent_icon.png')} style={styles.logo}/>
-            <Text style={[styles.loginText]}>Create Account</Text>
-        </View>
-        <View style={styles.leftContainer}>
-            {error ? <Text style={{color: 'red'}}>{error}</Text>: null}
-            <TextInput
-              style={styles.input}
-              placeholder="Enter a Username"
-              autoCapitalize='none'
-              value={username}
-              onChangeText={(value) => handleOnChangeText(value, 'username')}
-            />
-            <TextInput 
-              style={styles.input}
-              placeholder='Enter an Email'
-              autoCapitalize='none'
-              value={email}
-              onChangeText={(value) => handleOnChangeText(value, 'email')}
-            />
-            {/* Temporary show/hide button */}
-            <TouchableOpacity
-                onPress={() => {
+        <SafeAreaView style={signUpStyles.mainContainer}>
+          <View style={signUpStyles.container}>
+              <Image source={require('../assets/transparent_icon.png')} style={styles.logo}/>
+              <Text style={[styles.loginText]}>Create Account</Text>
+              {error ? <Text style={{color: 'red'}}>{error}</Text>: null}
+          </View>
+          <View style={signUpStyles.leftContainer}>
+              <TextInput
+                style={signUpStyles.signUpInput}
+                placeholder="Enter a Username"
+                autoCapitalize='none'
+                value={username}
+                onChangeText={(value) => handleOnChangeText(value, 'username')}
+              />
+          </View>
+          <View style={signUpStyles.leftContainer}>
+              <TextInput 
+                style={signUpStyles.signUpInput}
+                placeholder='Enter an Email'
+                autoCapitalize='none'
+                value={email}
+                onChangeText={(value) => handleOnChangeText(value, 'email')}
+              />
+          </View>
+          <View style={signUpStyles.leftContainer}>
+              <TextInput
+                style={signUpStyles.signUpInput}
+                placeholder='Enter a Password'
+                autoCapitalize='none'
+                secureTextEntry={isSecureEntry1}
+                value={password}
+                onChangeText={(value) => handleOnChangeText(value, 'password')}
+              />
+              <MaterialCommunityIcons 
+                  name={isSecureEntry1 ? 'eye-off' : 'eye'} 
+                  size={24} 
+                  color="#aaa"
+                  style={signUpStyles.signUpIcon} 
+                  onPress={() => {
                   setIsSecureEntry1((prev) => !prev);
-                }}>
-              <Text>{isSecureEntry1 ? 'Show' : 'Hide'}</Text>
-            </TouchableOpacity>
-            <TextInput
-              style={styles.input}
-              placeholder='Enter a Password'
-              autoCapitalize='none'
-              secureTextEntry={isSecureEntry1}
-              value={password}
-              onChangeText={(value) => handleOnChangeText(value, 'password')}
-            />
-            {/* Temporary show/hide button */}
-            <TouchableOpacity
-                onPress={() => {
+                }} 
+              />
+          </View>
+          <View style={signUpStyles.leftContainer}>
+              <TextInput
+                style={signUpStyles.signUpInput}
+                placeholder='Re-enter Your Password'
+                autoCapitalize='none'
+                secureTextEntry={isSecureEntry2}
+                value={confirmPassword}
+                onChangeText={(value) => handleOnChangeText(value, 'confirmPassword')}
+              />
+              <MaterialCommunityIcons 
+                  name={isSecureEntry2 ? 'eye-off' : 'eye'} 
+                  size={24} 
+                  color="#aaa"
+                  style={signUpStyles.signUpIcon} 
+                  onPress={() => {
                   setIsSecureEntry2((prev) => !prev);
-                }}>
-              <Text>{isSecureEntry2 ? 'Show' : 'Hide'}</Text>
-            </TouchableOpacity>
-            <TextInput
-              style={styles.input}
-              placeholder='Re-enter Your Password'
-              autoCapitalize='none'
-              secureTextEntry={isSecureEntry2}
-              value={confirmPassword}
-              onChangeText={(value) => handleOnChangeText(value, 'confirmPassword')}
-            />
-        </View>
+                }} 
+              />
+          </View>
 
 
-        <View style={styles.container}>    
-            <TouchableOpacity 
-              style={styles.loginButton}
-              // ONPRESS SIGN UP BUTTON -------------------------------------------------
-              onPress={handleSignUp}> 
-                <Text style={styles.loginButtonText}>Sign Up</Text>
-            </TouchableOpacity>    
-            <View style={styles.signUpLink}>
-                <Text>Already have an account? </Text>
-                    <TouchableOpacity>
-                        <Text
-                            onPress={() => navigation.navigate("Login")}
-                            style={styles.signUpText}>Sign In</Text>
-                    </TouchableOpacity>
-            </View> 
-        </View>
+          <View style={signUpStyles.container}>    
+              <TouchableOpacity 
+                style={styles.loginButton}
+                // ONPRESS SIGN UP BUTTON -------------------------------------------------
+                onPress={handleSignUp}> 
+                  <Text style={styles.loginButtonText}>Sign Up</Text>
+              </TouchableOpacity>    
+              <View style={styles.signUpLink}>
+                  <Text>Already have an account? </Text>
+                      <TouchableOpacity>
+                          <Text
+                              onPress={() => navigation.navigate("Login")}
+                              style={styles.signUpText}>Sign In</Text>
+                      </TouchableOpacity>
+              </View> 
+          </View>
+        </SafeAreaView>
         </ImageBackground>
     );
 };
