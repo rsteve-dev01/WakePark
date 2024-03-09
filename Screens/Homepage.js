@@ -1,8 +1,8 @@
-import React from 'react';
+/*import React from 'react';
 import { View, TouchableOpacity, ImageBackground, Image, Linking } from 'react-native';
 import { styles } from '../StyleSheet';
 import WakeTechImage from '../assets/WakeTech.png'; // Adjust the path based on the location of WakeTech.png
-/* import React from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 >>>>>>> Navigation-Integration
 
