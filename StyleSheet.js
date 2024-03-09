@@ -114,7 +114,6 @@ export const styles = StyleSheet.create({
       margin: 10,
       fontSize: 16,
     },
-<<<<<<< Updated upstream
     container: {
       flex: 1,
       justifyContent: 'center',
@@ -129,11 +128,5 @@ export const styles = StyleSheet.create({
       fontsize: 18,
       color: 'blue',
       textDecorationLine: 'underline',
-=======
-    text: {
-      color: "#161924",
-      fontSize: 20,
-      fontWeight: "500",
->>>>>>> Stashed changes
     },
   });

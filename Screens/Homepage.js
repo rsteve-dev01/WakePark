@@ -20,34 +20,3 @@ export const HomePage = ({ navigation }) => {
 }
 
 export default HomePage;
-
-
-{
-    /*import { createAppContainer } from 'react-navigation/native';
-import { createDrawerNavigation, createDrawerNavigator } from 'react-navigation-drawer';
-import { Dimensions } from 'react-native';
-
-import { Feather } from '@expo/vector-icons';
-
-import {
-    ProfileScreen,
-    MessageScreen,
-    ActivityScreen,
-    ListScreen,
-    ReportScreen,
-    StatisticScreen,
-    LogOutScreen
-} from '../Screens/DrawerIndex';
-
-const DrawerNavigator = createDrawerNavigator({
-    ProfileScreen,
-    MessageScreen,
-    ActivityScreen,
-    ListScreen,
-    ReportScreen,
-    StatisticScreen,
-    LogOutScreen
-});
-
-export default createAppContainer(DrawerNavigator); */
-}
