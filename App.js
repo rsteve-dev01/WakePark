@@ -16,25 +16,33 @@ import SignupScreen from "./Screens/Signup";
 import LoginScreen from "./Screens/Login";
 import OnboardingScreen from "./Screens/Onboarding";
 import ForgotPassword from './Screens/Forgot-Password';
-import HomePage from './Screens/Homepage';
-
+import HomePage from './Screens/Homepage';  
 const Stack = createNativeStackNavigator();
+import SupportPage from './Screens/SupportPage';
+import {Provider} from 'react-redux';
+import {store} from './store';
+import { SafeAreaProvider } from 'react-native-safe-area-context'; 
 
 export default function App(){
     return(
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="OnboardingScreen"
-            // Hide all headers on the pages
-            screenOptions = {{
-                headerShown: false
-            }}
-            >
-                <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
-                <Stack.Screen name="Login" component={LoginScreen}/>
-                <Stack.Screen name="Signup" component={SignupScreen}/>
-                <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
-                <Stack.Screen name="HomePage" component={HomePage} />
-            </Stack.Navigator>
-        </NavigationContainer>
+        <Provider store={store}>
+            <SafeAreaProvider>  
+                <NavigationContainer>
+                    <Stack.Navigator initialRouteName="SupportPage"
+                    // Hide all headers on the pages
+                    screenOptions = {{
+                        headerShown: false
+                    }}
+                    >
+                        <Stack.Screen name="SupportPage" component={SupportPage}/>
+                        <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
+                        <Stack.Screen name="Login" component={LoginScreen}/>
+                        <Stack.Screen name="Signup" component={SignupScreen}/>
+                        <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
+                        <Stack.Screen name="HomePage" component={HomePage} />
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </SafeAreaProvider>
+        </Provider>
     )
 }
