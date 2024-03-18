@@ -19,7 +19,7 @@ const data = [
   },
   {
     id: "385c9cd1-7ab7-4e39-9505-88f9ffb7a0e2",
-    title: "privacy,safety and security",
+    title: "Privacy,Safety and Security",
      icon: "lock-closed",
     screen: "PrivacyScreen",
   },
@@ -37,13 +37,13 @@ const data = [
     },
     {
         id: "b9615600-ac91-47c7-8bf2-bbba9e4f8ec3",
-        title: "Pay for Parking",
+        title: "Pay For Parking",
          icon: "wallet",
         screen: "PrivacyScreen",
     },
     {
         id: "ffc23dc2-443e-4b58-9084-7b54a657d642",
-        title: "contact US",
+        title: "Contact US",
          icon: "chatbubble-ellipses",
         screen: "PrivacyScreen",
     }

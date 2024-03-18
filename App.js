@@ -35,10 +35,11 @@ export default function App(){
                     }}
                     >
                         <Stack.Screen name="SupportPage" component={SupportPage}/>
-                        <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
+                        <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>   
                         <Stack.Screen name="Login" component={LoginScreen}/>
                         <Stack.Screen name="Signup" component={SignupScreen}/>
                         <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
+                     
                         <Stack.Screen name="HomePage" component={HomePage} />
                     </Stack.Navigator>
                 </NavigationContainer>

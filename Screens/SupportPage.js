@@ -10,11 +10,14 @@ import Logo from '../src/components/Logo';
 
 
 const SupportPage = () => {
+    const handleSubmit=(searchQuerry)=>{
+        console.log(`Do a search with: ${searchQuerry}`);
+    }
   return (
     <ImageBackground source={require('../assets/Background.jpg')} style={customStyles.backgroundImage}>
         <SafeAreaView style={customStyles.viewContainer}>
             <Logo />
-            <SearchBar onSearch={() => {}} />
+            <SearchBar onSearch={handleSubmit} />
             <PopularTopics />
         </SafeAreaView>
     </ImageBackground>
@@ -40,6 +43,7 @@ const customStyles = StyleSheet.create({
         resizeMode: "cover",
         height: '90%',
         marginTop: 40,
+        padding: 20,
     },
     logo: {
         width: 80,
