@@ -15,8 +15,12 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SignupScreen from "./Screens/Signup";
 import LoginScreen from "./Screens/Login";
 import OnboardingScreen from "./Screens/Onboarding";
+<<<<<<< Updated upstream
 import ForgotPassword from './Screens/Forgot-Password';
 import HomePage from './Screens/Homepage';
+=======
+import Homepage from "./Screens/Homepage";
+>>>>>>> Stashed changes
 
 const Stack = createNativeStackNavigator();
 
@@ -32,8 +36,12 @@ export default function App(){
                 <Stack.Screen name="HomePage" component={HomePage} />
                 <Stack.Screen name="Login" component={LoginScreen}/>
                 <Stack.Screen name="Signup" component={SignupScreen}/>
+<<<<<<< Updated upstream
                 <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
                 <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
+=======
+                <Stack.Screen name="Homepage" component={Homepage}/>
+>>>>>>> Stashed changes
             </Stack.Navigator>
         </NavigationContainer>
     )
