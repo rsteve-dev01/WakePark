@@ -32,32 +32,25 @@ export const HomePage = ({ navigation }) => {
                     <Image source={require('../images/homepage_pic.png')} style={styles.image} />
 
                     {/* Navigation Bar */}
-                <View style={styles.navigationBar}>
-                    <TouchableOpacity onPress={() => navigation.navigate('My Parking Spots')} style={styles.navItem}>
-                    <Image source={require('../images/mps.png')} style={styles.navIcon} />
-                        <Text style={styles.navText}>My Parking Spots</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('Parking Lot Full View')} style={styles.navItem}>
-                    <Image source={require('../images/pinpoint.png')} style={styles.navIcon} />
-                        <Text style={styles.navText}>Parking Lot Full View</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('Payments')} style={styles.navItem}>
-                    <Image source={require('../images/pi.png')} style={styles.navIcon} />
-                        <Text style={styles.navText}>Payments</Text>
-                    </TouchableOpacity>
-                </View>
+                    <View style={styles.navigationBar}>
+                        <TouchableOpacity onPress={() => navigation.navigate('My Parking Spots')} style={styles.navItem}>
+                            <Image source={require('../images/mps.png')} style={styles.navIcon} />
+                            <Text style={styles.navText}>My Parking Spots</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('Parking Lot Full View')} style={styles.navItem}>
+                            <Image source={require('../images/pinpoint.png')} style={styles.navIcon} />
+                            <Text style={styles.navText}>Parking Lot Full View</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('Payments')} style={styles.navItem}>
+                            <Image source={require('../images/pi.png')} style={styles.navIcon} />
+                            <Text style={styles.navText}>Payments</Text>
+                        </TouchableOpacity>
+                    </View>
 
-
-                    <View style={styles.textContainer}>
-
-                        <Image source={require('../assets/icon.png')}
-                            style={styles.icon} />
-
-                        {/* Title */}
-                        <View style={styles.title}>
-                            <Text style={styles.titleText}>Cheapest/Closest Parking Spots</Text>
-                        </View>
-
+                    {/* Title */}
+                    <View style={styles.titleContainer}>
+                        <Image source={require('../assets/icon.png')} style={styles.icon} />
+                        <Text style={styles.titleText}>Cheapest/Closest Parking Spots</Text>
                     </View>
 
                     {/* Toggle Buttons */}
@@ -90,11 +83,11 @@ export const HomePage = ({ navigation }) => {
                         </View>
                     </View>
 
-                </View>
-                
-                {/* Contact Us */}
-                <View style={styles.title}>
-                    <Text style={styles.titleText}>Contact Us</Text>
+                    {/* Contact Us */}
+                    <TouchableOpacity onPress={() => navigation.navigate('Support')} style={styles.contactContainer}>
+                        <Text style={styles.contactText}>Contact Us</Text>
+                        <Image source={require('../images/si.png')} style={styles.supportIcon} />
+                    </TouchableOpacity>
                 </View>
             </ImageBackground>
         </DrawerLayoutAndroid>
@@ -118,35 +111,19 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
     },
-    textContainer: {
+    titleContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
+        padding: 10,
     },
     icon: {
         width: 28,
         height: 28,
         marginRight: 10,
     },
-    title: {
-        alignItems: 'center',
-        padding: 10,
-    },
     titleText: {
         fontSize: 20,
         fontWeight: 'bold',
-    },
-    contact: {
-        fontSize: 18,
-        textAlign: 'center',
-    },
-    tabs: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        padding: 10,
-    },
-    tab: {
-        alignItems: 'center',
     },
     toggleButtons: {
         flexDirection: 'row',
@@ -201,6 +178,22 @@ const styles = StyleSheet.create({
         fontSize: 13,
         fontWeight: 'bold',
         fontStyle: 'italic',
+    },
+    contactContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        marginTop: 'auto',
+        marginBottom: 10,
+        marginRight: 10,
+    },
+    contactText: {
+        fontSize: 20,
+        marginRight: 10,
+    },
+    supportIcon: {
+        width: 45,
+        height: 45,
     },
 });
 
