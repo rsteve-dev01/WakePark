@@ -1,16 +1,38 @@
 import React from 'react';
-import { View, Text, Image, Button, ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, Image, Button, ImageBackground, StyleSheet, TouchableOpacity, DrawerLayoutAndroid } from 'react-native';
 
 
 export const HomePage = ({ navigation }) => {
+
+    let drawerRef = React.useRef(null);
+
+    const openDrawer = () => {
+        drawerRef.current.openDrawer();
+    };
+
+
     return (
+
+        <DrawerLayoutAndroid
+            ref={drawerRef}
+            drawerWidth={300}
+            drawerPosition={'left'}
+            renderNavigationView={() => (
+                <View style={styles.drawerContainer}>
+                    <Text onPress={() => navigation.navigate('Profile')}>Profile</Text>
+                    <Text onPress={() => alert('Logout button pressed')}>Logout</Text>
+                </View>
+            )}
+        >
         
         <ImageBackground
             source={require('../assets/Background.jpg')} 
             style={styles.background}>
 
             <View style={styles.container}>
-
+                <TouchableOpacity onPress={openDrawer}>
+                    <Image source={require('../images/menu-2.png')} style={{ width: 30, height: 30 }} />
+                </TouchableOpacity>
                 <Image source={require('../images/homepage_pic.png')}
                 style={styles.image}/>
 
@@ -64,7 +86,7 @@ export const HomePage = ({ navigation }) => {
                 <Text style={styles.titleText}>Contact Us</Text>
             </View>
         </ImageBackground>
-        
+        </DrawerLayoutAndroid>
     );
 }
 
@@ -75,9 +97,10 @@ const styles = StyleSheet.create({
         height: '100%',
     },
     image: {
-        width: 400,
-        height: 400,
-        resizeMode: 'contain',
+        width: 350,
+        height: 250,
+        margin: 10,
+        borderRadius: 10,
     },
     container: {
         flex: 1,
@@ -129,6 +152,12 @@ const styles = StyleSheet.create({
     },
     optionDescription: {
         color: '#888',
+    },
+    drawerContainer: {
+        flex: 1,
+        paddingTop: 50,
+        paddingLeft: 20,
+        backgroundColor: '#fff',
     },
 });
 
