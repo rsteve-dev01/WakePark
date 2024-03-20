@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, Text, Image, Button, ImageBackground, StyleSheet, TouchableOpacity, DrawerLayoutAndroid } from 'react-native';
 
-
 export const HomePage = ({ navigation }) => {
 
     let drawerRef = React.useRef(null);
@@ -9,7 +8,6 @@ export const HomePage = ({ navigation }) => {
     const openDrawer = () => {
         drawerRef.current.openDrawer();
     };
-
 
     return (
         <DrawerLayoutAndroid
@@ -32,6 +30,22 @@ export const HomePage = ({ navigation }) => {
                         <Image source={require('../images/menu-2.png')} style={styles.menuIcon} />
                     </TouchableOpacity>
                     <Image source={require('../images/homepage_pic.png')} style={styles.image} />
+
+                    {/* Navigation Bar */}
+                <View style={styles.navigationBar}>
+                    <TouchableOpacity onPress={() => navigation.navigate('My Parking Spots')} style={styles.navItem}>
+                    <Image source={require('../images/mps.png')} style={styles.navIcon} />
+                        <Text style={styles.navText}>My Parking Spots</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Parking Lot Full View')} style={styles.navItem}>
+                    <Image source={require('../images/pinpoint.png')} style={styles.navIcon} />
+                        <Text style={styles.navText}>Parking Lot Full View</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Payments')} style={styles.navItem}>
+                    <Image source={require('../images/pi.png')} style={styles.navIcon} />
+                        <Text style={styles.navText}>Payments</Text>
+                    </TouchableOpacity>
+                </View>
 
 
                     <View style={styles.textContainer}>
@@ -77,7 +91,7 @@ export const HomePage = ({ navigation }) => {
                     </View>
 
                 </View>
-
+                
                 {/* Contact Us */}
                 <View style={styles.title}>
                     <Text style={styles.titleText}>Contact Us</Text>
@@ -165,6 +179,28 @@ const styles = StyleSheet.create({
     menuIcon: {
         width: 30,
         height: 30,
+    },
+    navigationBar: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        backgroundColor: '#fff',
+        padding: 10,
+        borderRadius: 10,
+    },
+    navItem: {
+        alignItems: 'center',
+        paddingHorizontal: 10,
+    },
+    navIcon: {
+        width: 20,
+        height: 20,
+        marginRight: 5,
+    },
+    navText: {
+        color: '#000',
+        fontSize: 13,
+        fontWeight: 'bold',
+        fontStyle: 'italic',
     },
 });
 
