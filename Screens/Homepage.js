@@ -46,7 +46,7 @@ export const HomePage = ({ navigation }) => {
                             </View>
                         </View>
                         <View style={styles.option}>
-                            <View>
+                            <View style={styles.oval}>
                                 <Text>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 2</Text>
                             </View>
@@ -60,8 +60,8 @@ export const HomePage = ({ navigation }) => {
             </View>
 
             {/* Contact Us */}
-            <View style={styles.contact}>
-                <Text style={styles.contactText}>Contact Us</Text>
+            <View style={styles.title}>
+                <Text style={styles.titleText}>Contact Us</Text>
             </View>
         </ImageBackground>
         
