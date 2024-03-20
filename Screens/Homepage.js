@@ -12,7 +12,6 @@ export const HomePage = ({ navigation }) => {
 
 
     return (
-
         <DrawerLayoutAndroid
             ref={drawerRef}
             drawerWidth={300}
@@ -24,39 +23,37 @@ export const HomePage = ({ navigation }) => {
                 </View>
             )}
         >
-        
-        <ImageBackground
-            source={require('../assets/Background.jpg')} 
-            style={styles.background}>
+            <ImageBackground
+                source={require('../assets/Background.jpg')}
+                style={styles.background}>
 
-            <View style={styles.container}>
-                <TouchableOpacity onPress={openDrawer}>
-                    <Image source={require('../images/menu-2.png')} style={{ width: 30, height: 30 }} />
-                </TouchableOpacity>
-                <Image source={require('../images/homepage_pic.png')}
-                style={styles.image}/>
+                <View style={styles.container}>
+                    <TouchableOpacity onPress={openDrawer} style={styles.menuIconContainer}>
+                        <Image source={require('../images/menu-2.png')} style={styles.menuIcon} />
+                    </TouchableOpacity>
+                    <Image source={require('../images/homepage_pic.png')} style={styles.image} />
 
 
-                <View style={styles.textContainer}>
+                    <View style={styles.textContainer}>
 
-                    <Image source={require('../assets/icon.png')}
-                    style={styles.icon}/>
+                        <Image source={require('../assets/icon.png')}
+                            style={styles.icon} />
 
-                    {/* Title */}
-                    <View style={styles.title}>
-                         <Text style={styles.titleText}>Cheapest/Closest Parking Spots</Text>
+                        {/* Title */}
+                        <View style={styles.title}>
+                            <Text style={styles.titleText}>Cheapest/Closest Parking Spots</Text>
+                        </View>
+
                     </View>
 
-                </View>
-
-                {/* Toggle Buttons */}
-                <View style={styles.toggleButtons}>
+                    {/* Toggle Buttons */}
+                    <View style={styles.toggleButtons}>
                         <Button title="Cheapest" color="#007bff" />
                         <Button title="Closest" />
                     </View>
 
-            {/* Parking Options */}
-            <View style={styles.parkingOptions}>
+                    {/* Parking Options */}
+                    <View style={styles.parkingOptions}>
                         <View style={styles.option}>
                             <View>
                                 <Text>$10 - $15</Text>
@@ -78,14 +75,14 @@ export const HomePage = ({ navigation }) => {
                             </View>
                         </View>
                     </View>
-    
-            </View>
 
-            {/* Contact Us */}
-            <View style={styles.title}>
-                <Text style={styles.titleText}>Contact Us</Text>
-            </View>
-        </ImageBackground>
+                </View>
+
+                {/* Contact Us */}
+                <View style={styles.title}>
+                    <Text style={styles.titleText}>Contact Us</Text>
+                </View>
+            </ImageBackground>
         </DrawerLayoutAndroid>
     );
 }
@@ -99,7 +96,7 @@ const styles = StyleSheet.create({
     image: {
         width: 350,
         height: 250,
-        margin: 10,
+        margin: 20,
         borderRadius: 10,
     },
     container: {
@@ -108,14 +105,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     textContainer: {
-        flexDirection: 'row', 
+        flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center', 
+        justifyContent: 'center',
     },
     icon: {
-        width: 28, 
+        width: 28,
         height: 28,
-        marginRight: 10, 
+        marginRight: 10,
     },
     title: {
         alignItems: 'center',
@@ -124,10 +121,10 @@ const styles = StyleSheet.create({
     titleText: {
         fontSize: 20,
         fontWeight: 'bold',
-      },
+    },
     contact: {
-        fontSize: 18, 
-        textAlign: 'center', 
+        fontSize: 18,
+        textAlign: 'center',
     },
     tabs: {
         flexDirection: 'row',
@@ -159,6 +156,16 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         backgroundColor: '#fff',
     },
+    menuIconContainer: {
+        position: 'absolute',
+        top: 30,
+        right: 10,
+        zIndex: 1,
+    },
+    menuIcon: {
+        width: 30,
+        height: 30,
+    },
 });
 
-export default HomePage; 
+export default HomePage;
