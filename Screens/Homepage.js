@@ -120,6 +120,7 @@ const styles = StyleSheet.create({
         width: 28,
         height: 28,
         marginRight: 10,
+        borderRadius: 5,
     },
     titleText: {
         fontSize: 20,
