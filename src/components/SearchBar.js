@@ -5,10 +5,12 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
-
-  const handleSearch = () => {
-    console.log(`Do a search with: ${query}`);
-    onSearch(query);
+  
+  const handleSearch = (value) => {
+    console.log(value)
+    value==''?setQuery(''):onSearch(value);
+    setQuery(value);
+    
   };
 
   return (
@@ -20,7 +22,7 @@ const SearchBar = ({ onSearch }) => {
         <TextInput 
           placeholder="Search Help Center"
           value={query}
-          onChangeText={setQuery}
+          onChangeText={handleSearch}
         />
       </View>
       
@@ -42,6 +44,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     marginTop: 20,
     marginLeft:20,
+    zIndex: 500,
   },
   textInputContainer:{
     flex:1,
