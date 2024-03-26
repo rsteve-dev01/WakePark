@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Image, Button, ImageBackground, StyleSheet, TouchableOpacity, DrawerLayoutAndroid } from 'react-native';
+import {styles} from '../StyleSheet';
+import { View, Text, Image, Button, ImageBackground, StyleSheet, TouchableOpacity, DrawerLayoutAndroid, Linking } from 'react-native';
 
 export const HomePage = ({ navigation }) => {
 
@@ -7,6 +8,11 @@ export const HomePage = ({ navigation }) => {
 
     const openDrawer = () => {
         drawerRef.current.openDrawer();
+    };
+
+    // Function to handle linking to Google Maps with the specified address
+    const openGoogleMaps = () => {
+        Linking.openURL('https://www.google.com/maps/search/?api=1&query=6600+Louisburg+Rd+C,+Raleigh,+NC+27616');
     };
 
     return (
@@ -67,9 +73,9 @@ export const HomePage = ({ navigation }) => {
                     <View style={styles.parkingOptions}>
                         <View style={styles.option}>
                             <View>
-                                <Text style={styles.optionText}>$10 - $15</Text>
+                                <Text>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 1</Text>
-                            </View>
+                            </TouchableOpacity>
                             <View>
                                 <Text style={styles.optionText}>$20 - $25</Text>
                                 <Text style={styles.optionDescription}>Main Office</Text>
@@ -77,9 +83,9 @@ export const HomePage = ({ navigation }) => {
                         </View>
                         <View style={styles.option}>
                             <View style={styles.oval}>
-                                <Text style={styles.optionText}>$10 - $15</Text>
+                                <Text>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 2</Text>
-                            </View>
+                            </TouchableOpacity>
                             <View>
                                 <Text style={styles.optionText}>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 3</Text>
@@ -119,11 +125,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         padding: 10,
-        marginTop: 50,
     },
     icon: {
-        width: 40,
-        height: 40,
+        width: 28,
+        height: 28,
         marginRight: 10,
         borderRadius: 5,
     },
@@ -133,62 +138,19 @@ const styles = StyleSheet.create({
     },
     toggleButtons: {
         flexDirection: 'row',
-        justifyContent: 'space-around',
-        
+        justifyContent: 'center',
+        marginBottom: 10,
     },
-    toggleText: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        fontStyle: 'italic',
-        textAlign: 'center',
-        padding: 40,
-        left: -10,
-        right: 30,
-        top: -10,
-
-
-    },
-
     parkingOptions: {
-        position: 'absolute',
-        bottom: 100,
-        left: 30,
-        right: 50,
-        paddingHorizontal: 1,
+        padding: 10,
     },
     option: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: 10,
-        padding: 5,
     },
     optionDescription: {
         color: '#888',
-        fontSize:15,
-        textAlign: 'center',
-        padding: 10,
-        left: 10,
-        top: 10,
-        paddingVertical: 5,
-        paddingHorizontal: 1,
-        borderRadius: 10,
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        marginBottom: 20,
-        overflow: 'hidden',
-    },
-    optionText: {
-        color: '#888',
-        fontSize: 20,
-        textAlign: 'center',
-        padding: 10,
-        left: 10,
-        paddingVertical: 5,
-        paddingHorizontal: 20,
-        paddingVertical:15, 
-        borderRadius: 23,
-        borderWeight: 50,
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        overflow: 'hidden',
     },
     drawerContainer: {
         flex: 1,
@@ -244,7 +206,6 @@ const styles = StyleSheet.create({
         width: 45,
         height: 45,
     },
-
 });
 
 export default HomePage;
