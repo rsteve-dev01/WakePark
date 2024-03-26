@@ -134,9 +134,9 @@ export const styles = StyleSheet.create({
       height: '100%',
   },
   image: {
-      width: 350,
-      height: 250,
-      margin: 20,
+      width: '90%',
+      height: '35%',
+      margin: 30,
       borderRadius: 10,
   },
   container: {
@@ -183,8 +183,8 @@ export const styles = StyleSheet.create({
   },
   menuIconContainer: {
       position: 'absolute',
-      top: 30,
-      right: 10,
+      top: '7%',
+      right: '10%',
       zIndex: 1,
   },
   menuIcon: {
