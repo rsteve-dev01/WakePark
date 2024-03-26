@@ -55,29 +55,33 @@ export const HomePage = ({ navigation }) => {
 
                     {/* Toggle Buttons */}
                     <View style={styles.toggleButtons}>
-                        <Button title="Cheapest" color="#007bff" />
-                        <Button title="Closest" />
+                        <Text style={styles.toggleText}>Cheapest</Text>
+                        <Text style={styles.toggleText}>Closest</Text>
+                       {/* <TouchableOpacity style={styles.magnifyContainer}>
+                        <Image source={require('/Users/shreyamukherjee/Documents/WakeTech/Spring_2024/CSC289/WakePark/assets/magnifying_glass_icon.png')} style={styles.magnifyIcon} />
+                        </TouchableOpacity> */} 
+                        
                     </View>
 
                     {/* Parking Options */}
                     <View style={styles.parkingOptions}>
                         <View style={styles.option}>
                             <View>
-                                <Text>$10 - $15</Text>
+                                <Text style={styles.optionText}>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 1</Text>
                             </View>
                             <View>
-                                <Text>$20 - $25</Text>
+                                <Text style={styles.optionText}>$20 - $25</Text>
                                 <Text style={styles.optionDescription}>Main Office</Text>
                             </View>
                         </View>
                         <View style={styles.option}>
                             <View style={styles.oval}>
-                                <Text>$10 - $15</Text>
+                                <Text style={styles.optionText}>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 2</Text>
                             </View>
                             <View>
-                                <Text>$10 - $15</Text>
+                                <Text style={styles.optionText}>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 3</Text>
                             </View>
                         </View>
@@ -115,10 +119,11 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         padding: 10,
+        marginTop: 50,
     },
     icon: {
-        width: 28,
-        height: 28,
+        width: 40,
+        height: 40,
         marginRight: 10,
         borderRadius: 5,
     },
@@ -128,19 +133,62 @@ const styles = StyleSheet.create({
     },
     toggleButtons: {
         flexDirection: 'row',
-        justifyContent: 'center',
-        marginBottom: 10,
+        justifyContent: 'space-around',
+        
     },
+    toggleText: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        fontStyle: 'italic',
+        textAlign: 'center',
+        padding: 40,
+        left: -10,
+        right: 30,
+        top: -10,
+
+
+    },
+
     parkingOptions: {
-        padding: 10,
+        position: 'absolute',
+        bottom: 100,
+        left: 30,
+        right: 50,
+        paddingHorizontal: 1,
     },
     option: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: 10,
+        padding: 5,
     },
     optionDescription: {
         color: '#888',
+        fontSize:15,
+        textAlign: 'center',
+        padding: 10,
+        left: 10,
+        top: 10,
+        paddingVertical: 5,
+        paddingHorizontal: 1,
+        borderRadius: 10,
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        marginBottom: 20,
+        overflow: 'hidden',
+    },
+    optionText: {
+        color: '#888',
+        fontSize: 20,
+        textAlign: 'center',
+        padding: 10,
+        left: 10,
+        paddingVertical: 5,
+        paddingHorizontal: 20,
+        paddingVertical:15, 
+        borderRadius: 23,
+        borderWeight: 50,
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        overflow: 'hidden',
     },
     drawerContainer: {
         flex: 1,
@@ -196,6 +244,7 @@ const styles = StyleSheet.create({
         width: 45,
         height: 45,
     },
+
 });
 
 export default HomePage;
