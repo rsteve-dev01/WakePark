@@ -1,5 +1,5 @@
 import React from 'react';
-import {styles} from '../StyleSheet';
+//import {styles} from '../StyleSheet';
 import { View, Text, Image, Button, ImageBackground, StyleSheet, TouchableOpacity, DrawerLayoutAndroid, Linking } from 'react-native';
 
 export const HomePage = ({ navigation }) => {
@@ -36,6 +36,7 @@ export const HomePage = ({ navigation }) => {
                         <Image source={require('../images/menu-2.png')} style={styles.menuIcon} />
                     </TouchableOpacity>
                     <Image source={require('../images/homepage_pic.png')} style={styles.image} />
+                </View>
 
                     {/* Navigation Bar */}
                     <View style={styles.navigationBar}>
@@ -85,7 +86,8 @@ export const HomePage = ({ navigation }) => {
                             <View style={styles.oval}>
                                 <Text>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 2</Text>
-                            </TouchableOpacity>
+                            </View>
+                            
                             <View>
                                 <Text style={styles.optionText}>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 3</Text>
@@ -105,6 +107,7 @@ export const HomePage = ({ navigation }) => {
 }
 
 const styles = StyleSheet.create({
+
     background: {
         flex: 1,
         width: '100%',
