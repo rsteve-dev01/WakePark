@@ -75,7 +75,7 @@ export const HomePage = ({ navigation }) => {
                             <View>
                                 <Text>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 1</Text>
-                            </TouchableOpacity>
+                            
                             <View>
                                 <Text style={styles.optionText}>$20 - $25</Text>
                                 <Text style={styles.optionDescription}>Main Office</Text>
