@@ -1,6 +1,6 @@
 import React from 'react';
-import {styles} from '../StyleSheet';
-import { View, Text, Image, Button, ImageBackground, TouchableOpacity, DrawerLayoutAndroid, Linking } from 'react-native';
+import { styles } from '../StyleSheet';
+import { View, Text, Image, Button, ImageBackground, TouchableOpacity, DrawerLayoutAndroid, Linking, Platform } from 'react-native';
 
 export const HomePage = ({ navigation }) => {
 
@@ -13,6 +13,26 @@ export const HomePage = ({ navigation }) => {
     // Function to handle linking to Google Maps with the specified address
     const openGoogleMaps = () => {
         Linking.openURL('https://www.google.com/maps/search/?api=1&query=6600+Louisburg+Rd+C,+Raleigh,+NC+27616');
+    };
+
+    // Function to handle linking to the native camera app
+    const openCamera = async () => {
+        let url = 'photos://';
+        if (Platform.OS === 'android') {
+            url = 'intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;end';
+        }
+
+        try {
+            const supported = await Linking.canOpenURL(url);
+            if (supported) {
+                await Linking.openURL(url);
+            } else {
+                throw new Error(`Unable to open URL: ${url}`);
+            }
+        } catch (error) {
+            console.error(error);
+            alert('Unable to open camera.');
+        }
     };
 
     return (
@@ -72,10 +92,10 @@ export const HomePage = ({ navigation }) => {
                                 <Text>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 1</Text>
                             </TouchableOpacity>
-                            <View>
+                            <TouchableOpacity onPress={openCamera} style={styles.oval}>
                                 <Text>$20 - $25</Text>
                                 <Text style={styles.optionDescription}>Main Office</Text>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                         <View style={styles.option}>
                             <TouchableOpacity onPress={openGoogleMaps} style={styles.oval}>
