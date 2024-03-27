@@ -1,6 +1,6 @@
 import React from 'react';
 import {styles} from '../StyleSheet';
-import { View, Text, Image, TouchableOpacity, ImageBackground, StyleSheet, DrawerLayoutAndroid } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ImageBackground, DrawerLayoutAndroid } from 'react-native';
  
 export const HomePage = ({ navigation }) => {
  
@@ -39,7 +39,7 @@ export const HomePage = ({ navigation }) => {
  
                     {/* Navigation Bar */}
                     <View style={styles.navigationBar}>
-                        <TouchableOpacity onPress={() => navigation.navigate('My Parking Spots')} style={styles.navItem}>
+                        <TouchableOpacity onPress={() => navigation.navigate('ParkingSpots')} style={styles.navItem}>
                             <Image source={require('../images/mps.png')} style={styles.navIcon} />
                             <Text style={styles.navText}>My Parking Spots</Text>
                         </TouchableOpacity>
