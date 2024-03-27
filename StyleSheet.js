@@ -135,7 +135,7 @@ export const styles = StyleSheet.create({
   },
   image: {
       width: '90%',
-      height: '35%',
+      height: '30%',
       margin: 30,
       borderRadius: 10,
   },
@@ -147,8 +147,7 @@ export const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10,
-    marginTop: 50,
+    margin: 12,
   },
   icon: {
     width: 40,
@@ -174,7 +173,6 @@ export const styles = StyleSheet.create({
     padding: 20,
     left: -10,
     right: 30,
-    top: -10,
   },
   parkingOptions: {
     position: 'absolute',
@@ -187,7 +185,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 10,
-    padding: 5,
+    
   },
   optionDescription: {
     color: '#888',
