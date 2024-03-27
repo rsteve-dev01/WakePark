@@ -1,16 +1,20 @@
 import React from 'react';
 import {styles} from '../StyleSheet';
-import { View, Text, Image, Button, ImageBackground, TouchableOpacity, DrawerLayoutAndroid, Linking } from 'react-native';
-
-
+import { View, Text, Image, TouchableOpacity, ImageBackground, StyleSheet, DrawerLayoutAndroid } from 'react-native';
+ 
 export const HomePage = ({ navigation }) => {
-
+ 
     let drawerRef = React.useRef(null);
-
+ 
     const openDrawer = () => {
         drawerRef.current.openDrawer();
     };
 
+    // Function to handle linking to Google Maps with the specified address
+    const openGoogleMaps = () => {
+        Linking.openURL('https://www.google.com/maps/search/?api=1&query=6600+Louisburg+Rd+C,+Raleigh,+NC+27616');
+    };
+ 
     return (
         <DrawerLayoutAndroid
             ref={drawerRef}
@@ -26,13 +30,13 @@ export const HomePage = ({ navigation }) => {
             <ImageBackground
                 source={require('../assets/Background.jpg')}
                 style={styles.background}>
-
+ 
                 <View style={styles.container}>
                     <TouchableOpacity onPress={openDrawer} style={styles.menuIconContainer}>
                         <Image source={require('../images/menu-2.png')} style={styles.menuIcon} />
                     </TouchableOpacity>
                     <Image source={require('../images/homepage_pic.png')} style={styles.image} />
-
+ 
                     {/* Navigation Bar */}
                     <View style={styles.navigationBar}>
                         <TouchableOpacity onPress={() => navigation.navigate('My Parking Spots')} style={styles.navItem}>
@@ -48,13 +52,13 @@ export const HomePage = ({ navigation }) => {
                             <Text style={styles.navText}>Payments</Text>
                         </TouchableOpacity>
                     </View>
-
+ 
                     {/* Title */}
                     <View style={styles.titleContainer}>
                         <Image source={require('../assets/icon.png')} style={styles.icon} />
                         <Text style={styles.titleText}>Cheapest/Closest Parking Spots</Text>
                     </View>
-
+ 
                     {/* Toggle Buttons */}
                     <View style={styles.toggleButtons}>
                         <Text style={styles.toggleText}>Cheapest</Text>
@@ -64,31 +68,31 @@ export const HomePage = ({ navigation }) => {
                             <Image source={require('../images/magnifying_glass.png')} style={styles.magnifyIcon} />
             </TouchableOpacity> */}
                     </View>
-
+ 
                     {/* Parking Options */}
                     <View style={styles.parkingOptions}>
                         <View style={styles.option}>
-                            <TouchableOpacity onPress={openGoogleMaps} style={styles.oval}>
-                                <Text>$10 - $15</Text>
-                                <Text style={styles.optionDescription}>Building 1</Text>
-                            </TouchableOpacity>
                             <View>
-                                <Text>$20 - $25</Text>
+                                <Text style={styles.optionText}>$10 - $15</Text>
+                                <Text style={styles.optionDescription}>Building 1</Text>
+                            </View>
+                            <View>
+                                <Text style={styles.optionText}>$20 - $25</Text>
                                 <Text style={styles.optionDescription}>Main Office</Text>
                             </View>
                         </View>
                         <View style={styles.option}>
-                            <TouchableOpacity onPress={openGoogleMaps} style={styles.oval}>
-                                <Text>$10 - $15</Text>
+                            <View style={styles.oval}>
+                                <Text style={styles.optionText}>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 2</Text>
-                            </TouchableOpacity>
+                            </View>
                             <View>
-                                <Text>$10 - $15</Text>
+                                <Text style={styles.optionText}>$10 - $15</Text>
                                 <Text style={styles.optionDescription}>Building 3</Text>
                             </View>
                         </View>
                     </View>
-
+ 
                     {/* Contact Us */}
                     <TouchableOpacity onPress={() => navigation.navigate('Support')} style={styles.contactContainer}>
                         <Text style={styles.contactText}>Contact Us</Text>
@@ -99,5 +103,5 @@ export const HomePage = ({ navigation }) => {
         </DrawerLayoutAndroid>
     );
 }
-
+ 
 export default HomePage;
