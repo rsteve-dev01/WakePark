@@ -160,19 +160,20 @@ export const styles = StyleSheet.create({
       fontWeight: 'bold',
   },
   toggleButtons: {
+    textAlign: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     backgroundColor: '#fff',
     borderRadius: 10,
+    width: '95%',
+
   },
   toggleText: {
     fontSize: 20,
     fontWeight: 'bold',
     fontStyle: 'italic',
     textAlign: 'center',
-    padding: 20,
-    left: -10,
-    right: 30,
+    margin: 20,
   },
   parkingOptions: {
     position: 'absolute',
@@ -197,7 +198,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 1,
     borderRadius: 10,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgb(255, 255, 255)',
     marginBottom: 20,
     overflow: 'hidden',
   },
@@ -211,7 +212,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 15,
     borderRadius: 25,
     borderWeight: 50,
-    backgroundColor: 'rgba(255, 255, 255, 0.8)',
+    backgroundColor: 'rgb(255, 255, 255)',
     overflow: 'hidden',
   },
   drawerContainer: {
