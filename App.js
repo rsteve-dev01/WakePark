@@ -18,6 +18,8 @@ import OnboardingScreen from "./Screens/Onboarding";
 import ForgotPassword from './Screens/Forgot-Password';
 import HomePage from './Screens/Homepage';
 import ParkingSpots from './Screens/ParkingSpots';
+import PreviousParking from './Screens/PreviousParking';
+import SavedParkingList from './Screens/SavedParkingList';
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +38,8 @@ export default function App(){
                 <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
                 <Stack.Screen name="OnboardingScreen" component={OnboardingScreen}/>
                 <Stack.Screen name="ParkingSpots" component={ParkingSpots}/>
+                <Stack.Screen name="PreviousParking" component={PreviousParking}/>
+                <Stack.Screen name="SavedParkingList" component={SavedParkingList}/>
             </Stack.Navigator>
         </NavigationContainer>
     )

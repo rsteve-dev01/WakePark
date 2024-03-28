@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet.js'; // corrected import
-import { useNavigation } from '@react-navigation/native';
 
-export default function ParkingSpots(){
+export const ParkingSpots = ({ navigation }) => {
     return(
         <ImageBackground source={require('../assets/Background.jpg')} style={styles.backgroundImage}>
             <View style={styles.container}>
@@ -13,7 +12,7 @@ export default function ParkingSpots(){
                     <Text style={styles.loginText}>My Parking Spots</Text>
                 </View>
                 <View style={{flexDirection:'row',  ...styles.container}}>
-                    <TouchableOpacity style={{...styles.leftContainer, ...styles.parkingButton}}>
+                    <TouchableOpacity style={{...styles.leftContainer, ...styles.parkingButton}} onPress={() => navigation.navigate('PreviousParking')}>
                         <Text style={styles.parkingButtonText}>Save Parking Spot</Text>
                     </TouchableOpacity>
                     <Text>Icon</Text>
@@ -34,3 +33,5 @@ export default function ParkingSpots(){
         </ImageBackground>
     );
 }
+
+export default ParkingSpots;

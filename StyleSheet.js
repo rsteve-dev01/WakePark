@@ -216,10 +216,10 @@ export const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   drawerContainer: {
-      flex: 1,
-      paddingTop: 50,
-      paddingLeft: 20,
-      backgroundColor: '#fff',
+    flex: 1,
+    paddingTop: 50,
+    paddingLeft: 20,
+    backgroundColor: '#F5F5F5',
   },
   menuIconContainer: {
       position: 'absolute',
