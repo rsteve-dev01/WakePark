@@ -134,15 +134,10 @@ export const styles = StyleSheet.create({
       height: '100%',
   },
   image: {
-      width: '90%',
+      width: '100%',
       height: '30%',
       margin: 30,
       borderRadius: 10,
-  },
-  container: {
-      flex: 1,
-      justifyContent: 'flex-start',
-      alignItems: 'center',
   },
   titleContainer: {
     flexDirection: 'row',

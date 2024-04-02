@@ -1,9 +1,10 @@
 import React from 'react';
-import { StatusBar, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StatusBar, ImageBackground, Image, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { auth, signInWithEmailAndPassword } from '../database/firebase';
+
 
 // Need to be changed to the SignUpScreen Function (remove default)
 export default function LoginScreen() {
