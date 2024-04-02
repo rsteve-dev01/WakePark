@@ -32,7 +32,7 @@ export default function ForgotPassword() {
   };
 
   return (
-    <ImageBackground source={require('../assets/Background.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.backButton} onPress={handleBackToLogin}>
           <Image source={require('../assets/back_arrow.png')} style={styles.backIcon} />

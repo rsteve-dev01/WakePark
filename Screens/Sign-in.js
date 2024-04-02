@@ -4,7 +4,7 @@ import { StatusBar, ImageBackground, Image, StyleSheet, Text, View, TextInput, T
 const SignInScreen = () => {
   return (
     // This is the Background Image
-    <ImageBackground source={require('../assets/Background.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
       <View style={styles.container}>
         {/* This is our App Logo */}
         <Image source={require('../assets/transparent_icon.png')} style={styles.logo} />

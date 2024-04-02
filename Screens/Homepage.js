@@ -28,7 +28,7 @@ export const HomePage = ({ navigation }) => {
             )}
         >
             <ImageBackground
-                source={require('../assets/Background.jpg')}
+                source={require('../assets/bg2.png')}
                 style={styles.background}>
  
                 <View style={styles.container}>
