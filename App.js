@@ -21,6 +21,8 @@ import ParkingSpots from './Screens/ParkingSpots';
 import PreviousParking from './Screens/PreviousParking';
 import SavedParkingList from './Screens/SavedParkingList';
 import Profile from './Screens/Profile'
+import Payments from './Screens/Payments'
+import SavedPayments from './Screens/SavedPayments'
 
 const Stack = createNativeStackNavigator();
 
@@ -42,6 +44,8 @@ export default function App(){
                 <Stack.Screen name="PreviousParking" component={PreviousParking}/>
                 <Stack.Screen name="SavedParkingList" component={SavedParkingList}/>
                 <Stack.Screen name="Profile" component={Profile}/>
+                <Stack.Screen name="Payments" component={Payments}/>
+                <Stack.Screen name="SavedPayments" component={SavedPayments}/>
 
             </Stack.Navigator>
         </NavigationContainer>
