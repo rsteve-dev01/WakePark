@@ -269,4 +269,7 @@ export const styles = StyleSheet.create({
       width: 45,
       height: 45,
   },
+  camera: {
+    flex: 1,
+  },
   });

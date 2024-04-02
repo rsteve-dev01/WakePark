@@ -20,13 +20,14 @@ import HomePage from './Screens/Homepage';
 import ParkingSpots from './Screens/ParkingSpots';
 import PreviousParking from './Screens/PreviousParking';
 import SavedParkingList from './Screens/SavedParkingList';
+import SaveParking from './Screens/SaveParking';
 
 const Stack = createNativeStackNavigator();
 
 export default function App(){
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="HomePage"
+            <Stack.Navigator initialRouteName="SaveParking"
             // Hide all headers on the pages
             screenOptions = {{
                 headerShown: false
@@ -40,6 +41,7 @@ export default function App(){
                 <Stack.Screen name="ParkingSpots" component={ParkingSpots}/>
                 <Stack.Screen name="PreviousParking" component={PreviousParking}/>
                 <Stack.Screen name="SavedParkingList" component={SavedParkingList}/>
+                <Stack.Screen name="SaveParking" component={SaveParking}/>
             </Stack.Navigator>
         </NavigationContainer>
     )
