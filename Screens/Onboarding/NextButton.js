@@ -71,11 +71,12 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        bottom: 20,
     },
     button: {
         position: 'absolute',
         backgroundColor: '#524FAA',
         borderRadius: 100,
-        padding: 20,
+        padding: 30,
     },
 });
