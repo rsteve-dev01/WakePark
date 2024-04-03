@@ -69,7 +69,7 @@ export const styles = StyleSheet.create({
     color: 'blue',
   },
   loginButton: {
-    backgroundColor: 'black',
+    backgroundColor: '#1d4f7e',
     borderRadius: 50,
     paddingVertical: 15,
     paddingHorizontal: 40,
