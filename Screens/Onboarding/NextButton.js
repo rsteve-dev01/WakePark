@@ -46,7 +46,7 @@ export default NextButton = ({ percentage, scrollTo }) => {
         <View style={styles.container}>
             <Svg width={size} height={size}>
                 <G rotation="-90" origin={center}>
-                    <Circle fill='transparent' stroke='#D9D9D9' cx={center} cy={center} r={radius} strokeWidth={strokeWidth} />
+                    <Circle fill='transparent' stroke='#fff' cx={center} cy={center} r={radius} strokeWidth={strokeWidth} />
                     <Circle
                         fill='transparent'
                         stroke='#524FAA'
