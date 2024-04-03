@@ -29,7 +29,7 @@ const Stack = createNativeStackNavigator();
 export default function App(){
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="Onboarding"
+            <Stack.Navigator initialRouteName="Login"
             // Hide all headers on the pages
             screenOptions = {{
                 headerShown: false
