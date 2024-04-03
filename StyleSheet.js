@@ -7,11 +7,11 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
-  leftContainer:{
+  leftContainer: {
     flex: 1,
     paddingHorizontal: 20,
   },
-  adjacentContainer:{
+  adjacentContainer: {
     flexDirection: "row"
   },
   backgroundImage: {
@@ -103,7 +103,7 @@ export const styles = StyleSheet.create({
   centeredText: {
     textAlign: 'center',
   },
-  leftText:{
+  leftText: {
     textAlign: 'left',
   },
   signUpText: {
@@ -114,11 +114,11 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     top: 40,
     left: 20,
-    zIndex: 10, 
+    zIndex: 10,
   },
   backIcon: {
-    width: 30, 
-    height: 30, 
+    width: 30,
+    height: 30,
   },
   fgpIcon: {
     width: '30%',
@@ -175,7 +175,7 @@ export const styles = StyleSheet.create({
     bottom: 100,
     left: 30,
     right: 50,
-    paddingHorizontal:1,
+    paddingHorizontal: 1,
   },
   option: {
     flexDirection: 'row',
