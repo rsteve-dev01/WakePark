@@ -7,7 +7,6 @@ const Payments = ({ navigation }) => {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
   const [company, setCompany] = useState('');
-  const [savedCard, setSavedCard] = useState('');
 
   const handleSavePayment = () => {
     console.log('Payment information saved:', { company, cardNumber, expiryDate, cvv });
@@ -15,15 +14,13 @@ const Payments = ({ navigation }) => {
     setCardNumber('');
     setExpiryDate('');
     setCvv('');
-  };
-
-  const handleOpenSavedPayments = () => {
     navigation.navigate('SavedPayments', { cardDescription: `${company} ending with ${cardNumber.slice(-4)}` });
   };
 
   const formatCardNumber = (input) => {
     const formattedNumber = input.replace(/\D/g, '');
-    setCardNumber(formattedNumber.slice(0, 16));
+    const formattedNumberWithDashes = formattedNumber.replace(/(.{4})/g, '$1-').slice(0, 19);
+    setCardNumber(formattedNumberWithDashes);
   };
 
   const formatExpiryDate = (input) => {
@@ -38,7 +35,7 @@ const Payments = ({ navigation }) => {
   };
 
   return (
-    <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../assets/bg1.png')} style={styles.backgroundImage}>
       <View style={styles.container}>
         <Image source={require('../assets/transparent_icon.png')} style={styles.logo} />
 
@@ -77,7 +74,7 @@ const Payments = ({ navigation }) => {
           <Text style={styles.saveButtonText}>Save Payment</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.openSavedButton} onPress={handleOpenSavedPayments}>
+        <TouchableOpacity style={styles.openSavedButton} onPress={() => navigation.navigate('SavedPayments')}>
           <Text style={styles.openSavedButtonText}>Open Previously Saved Payments</Text>
         </TouchableOpacity>
 
