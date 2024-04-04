@@ -158,7 +158,8 @@ export const styles = StyleSheet.create({
     height: 30,
   },
   fgpIcon: {
-    width: '30%',
+    resizeMode: 'contain',
+    width: '50%',
     height: '20%',
     margin: 20,
   },
