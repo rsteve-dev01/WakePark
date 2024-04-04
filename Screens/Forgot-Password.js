@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StatusBar, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { StatusBar, ImageBackground, Image, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { styles } from '../StyleSheet';
 import { auth, sendPasswordResetEmail } from '../database/firebase'; // Update the path accordingly
