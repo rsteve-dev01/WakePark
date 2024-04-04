@@ -42,6 +42,18 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 5,
     backgroundColor: 'white',
   },
+  emailInput: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    marginBottom: 10,
+    width: '100%',
+    backgroundColor: 'white',
+  },
   inputSignup: {
     borderColor: '#ccc',
     paddingVertical: 10,

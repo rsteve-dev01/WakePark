@@ -43,11 +43,10 @@ export default function ForgotPassword() {
         <Text style={[styles.marginText, styles.centeredText]}>Enter Your Email To Receive A Code</Text>
 
         <TextInput
-          style={styles.input}
+          style={styles.emailInput}
           placeholder="Enter your email"
           value={email}
           onChangeText={(text) => setEmail(text)}
-          fontWeight={'bold'}
         />
 
         <TouchableOpacity style={styles.loginButton} onPress={handleResetPassword}>
