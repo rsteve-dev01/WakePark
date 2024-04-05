@@ -213,7 +213,26 @@ export const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 50,
     paddingLeft: 20,
+    height: '100%',
     backgroundColor: '#F5F5F5',
+  },
+  drawerHeader: {
+    flex: 0,
+    height: "36%",
+    paddingLeft: 20,
+    paddingTop: 30,
+    paddingBottom: 30,
+    paddingRight: 20,
+    backgroundColor: '#8bb6e1',
+  },
+  drawerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  logoutLink: {
+    color: 'blue',
+    textDecorationLine: 'underline',
   },
   menuIconContainer: {
     position: 'absolute',

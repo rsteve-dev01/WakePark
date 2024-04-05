@@ -1,5 +1,7 @@
 import React from 'react';
 import {styles} from '../StyleSheet';
+import { auth } from "../database/firebase";
+import { getAuth, signOut } from "firebase/auth";
 import { View, Text, Image, TouchableOpacity, ImageBackground, DrawerLayoutAndroid } from 'react-native';
  
 export const HomePage = ({ navigation }) => {
@@ -10,20 +12,44 @@ export const HomePage = ({ navigation }) => {
         drawerRef.current.openDrawer();
     };
 
+    //Function to log the user out and send them back to the homepage
+    const auth = getAuth();
+    const Logout = () => {
+        const auth = getAuth();
+        signOut(auth).then(() => {
+            console.log('signout successful');
+            navigation.navigate('Login');
+        }).catch((error) => {
+            console.log('uh oh');
+        });
+    };
+
     // Function to handle linking to Google Maps with the specified address
     const openGoogleMaps = () => {
         Linking.openURL('https://www.google.com/maps/search/?api=1&query=6600+Louisburg+Rd+C,+Raleigh,+NC+27616');
     };
- 
+    
+    //statements to get the user's email and the name they will be displayed as in the drawer
+    const user = auth.currentUser;
+    const email = user.email;
+    const username = email.substring(0, email.indexOf("@"));
+
     return (
         <DrawerLayoutAndroid
             ref={drawerRef}
             drawerWidth={300}
             drawerPosition={'left'}
+            drawerBackgroundColor={'#F5F5F5'}
             renderNavigationView={() => (
-                <View style={styles.drawerContainer}>
-                    <Text onPress={() => navigation.navigate('Profile')}>Profile</Text>
-                    <Text onPress={() => alert('Logout button pressed')}>Logout</Text>
+                <View>
+                    <View style={styles.drawerHeader}>
+                        <Text style={styles.drawerTitle}>Hi, {username}!</Text>
+                        <Text style={{...styles.greyText, fontSize:14, }}>{user.email}</Text>
+                    </View>
+                    <View style={styles.drawerContainer}>
+                        <Text onPress={() => navigation.navigate('Profile')}>Profile</Text>
+                        <Text style={styles.logoutLink} onPress={() => Logout()}>Logout</Text>
+                    </View>
                 </View>
             )}
         >
