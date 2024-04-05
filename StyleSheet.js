@@ -249,7 +249,7 @@ export const styles = StyleSheet.create({
     paddingTop: 30,
     paddingBottom: 30,
     paddingRight: 20,
-    backgroundColor: '#8bb6e1',
+    backgroundColor: '#b9dbe3',
   },
   drawerTitle: {
     fontSize: 24,
