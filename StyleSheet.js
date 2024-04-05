@@ -153,6 +153,7 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
   },
   navIcon: {
+    resizeMode: 'contain',
     width: 20,
     height: 20,
     marginRight: 5,
