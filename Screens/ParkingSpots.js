@@ -4,7 +4,7 @@ import {styles} from '../StyleSheet.js'; // corrected import
 
 export const ParkingSpots = ({ navigation }) => {
     return(
-        <ImageBackground source={require('../assets/Background.jpg')} style={styles.backgroundImage}>
+        <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
             <View style={styles.container}>
                 <View style={styles.container}></View>
                 <View style={styles.container}>

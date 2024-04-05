@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import {styles} from '../StyleSheet';
 
 const SavedParkingList = ({ route }) => {
   const { parkingSpot } = route.params;
@@ -8,8 +9,8 @@ const SavedParkingList = ({ route }) => {
   const savedParkingSpots = [...parkingSpot];
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Saved Parking Spots:</Text>
+    <View style={styles.ParkingListContainer}>
+      <Text style={styles.ParkingListTitle}>Saved Parking Spots:</Text>
       <ScrollView contentContainerStyle={styles.scrollViewContent} horizontal showsHorizontalScrollIndicator={false}>
         {savedParkingSpots.map((spot, index) => (
           <Text key={index}>
@@ -20,18 +21,5 @@ const SavedParkingList = ({ route }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: '50%',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 20,
-  },
-  scrollViewContent: {
-    alignItems: 'center',
-  },
-});
 
 export default SavedParkingList;

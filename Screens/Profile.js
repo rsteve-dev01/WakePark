@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { getCurrentUser } from '../database/firebase';
+import {styles} from '../StyleSheet';
 
 export default function Profile() {
   const [user, setUser] = useState(null);
@@ -34,14 +35,14 @@ export default function Profile() {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.profileContainer}>
       <Text style={styles.heading}>Profile</Text>
       {user ? ( // Check if user data is available
         <View style={styles.userInfo}>
           <Text>Email:</Text>
           <Text>{user.email}</Text>
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-            <Text style={styles.toggleButton}>
+            <Text style={styles.toggleButtonProfile}>
               {showPassword ? 'Hide Password' : 'Show Password'}
             </Text>
           </TouchableOpacity>
@@ -53,24 +54,3 @@ export default function Profile() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  userInfo: {
-    alignItems: 'center',
-  },
-  toggleButton: {
-    marginTop: 10,
-    color: 'blue',
-    textDecorationLine: 'underline',
-  },
-});

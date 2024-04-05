@@ -4,6 +4,7 @@ import {styles} from '../StyleSheet';
 import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 import { auth, signInWithEmailAndPassword } from '../database/firebase';
+import { AntDesign } from '@expo/vector-icons';
 
 
 // Need to be changed to the SignUpScreen Function (remove default)
@@ -31,21 +32,25 @@ export default function LoginScreen() {
   };
   
   return (
-    <ImageBackground source={require('../assets/Background.jpg')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
       <View style={styles.container}>
         <Image source={require('../assets/transparent_icon.png')} style={styles.logo} />
         <Text style={[styles.loginText, styles.centeredText]}>Login</Text>
         <Text style={[styles.greyText, styles.centeredText]}>Please sign in to continue.</Text>
 
         {/* Email field */}
-        <TextInput
-          style={styles.input}
-          placeholder="Enter your email"
-          onChangeText={(text) => setEmail(text)}
-        />
+        <View style={styles.emailInputContainer}>
+          <AntDesign name="mail" size={20} color="#9e9e9e" />
+          <TextInput
+            style={styles.input}
+            placeholder="Enter your email"
+            onChangeText={(text) => setEmail(text)}
+          />
+        </View>
 
         {/* Password field */}
         <View style={styles.passwordInputContainer}>
+          <AntDesign name="lock" size={20} color="#9e9e9e" />
           <TextInput
             style={styles.passwordInput}
             placeholder="Enter your password"

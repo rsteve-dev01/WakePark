@@ -14,7 +14,7 @@ const SupportPage = () => {
         console.log(`Do a search with: ${searchQuerry}`);
     }
   return (
-    <ImageBackground source={require('../assets/Background.jpg')} style={customStyles.backgroundImage}>
+    <ImageBackground source={require('../assets/bg2.png')} style={customStyles.backgroundImage}>
         <SafeAreaView style={customStyles.viewContainer}>
             <Logo />
             <SearchBar onSearch={handleSubmit} />

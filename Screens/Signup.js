@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet.js'; // corrected import
 import { auth, createUserWithEmailAndPassword, updateProfile } from "../database/firebase";
+import { AntDesign } from '@expo/vector-icons';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -100,7 +101,7 @@ export const SignupScreen = () => { // destructuring navigation from props
       };
 
     return (
-        <ImageBackground source={require('../assets/Background.jpg')} style={styles.backgroundImage}>
+        <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
         
         <View style={styles.container}>
             <Image source={require('../assets/transparent_icon.png')} style={styles.logo}/>
@@ -108,20 +109,26 @@ export const SignupScreen = () => { // destructuring navigation from props
         </View>
         <View style={styles.leftContainer}>
             {error ? <Text style={{color: 'red'}}>{error}</Text>: null}
+            <View style={styles.userInputSignup}>
+            <AntDesign name="user" size={20} color="#9e9e9e" />
             <TextInput
-              style={styles.input}
+              style={styles.inputSignup}
               placeholder="Enter a Username"
               autoCapitalize='none'
               value={username}
               onChangeText={(value) => handleOnChangeText(value, 'username')}
             />
+            </View>
+            <View style={styles.userInputSignup}>
+            <AntDesign name="mail" size={20} color="#9e9e9e" />
             <TextInput 
-              style={styles.input}
+              style={styles.inputSignup}
               placeholder='Enter an Email'
               autoCapitalize='none'
               value={email}
               onChangeText={(value) => handleOnChangeText(value, 'email')}
             />
+            </View>
             {/* Temporary show/hide button */}
             <TouchableOpacity
                 onPress={() => {
@@ -129,14 +136,17 @@ export const SignupScreen = () => { // destructuring navigation from props
                 }}>
               <Text>{isSecureEntry1 ? 'Show' : 'Hide'}</Text>
             </TouchableOpacity>
+            <View style={styles.userInputSignup}>
+            <AntDesign name="lock" size={20} color="#9e9e9e" />
             <TextInput
-              style={styles.input}
+              style={styles.inputSignup}
               placeholder='Enter a Password'
               autoCapitalize='none'
               secureTextEntry={isSecureEntry1}
               value={password}
               onChangeText={(value) => handleOnChangeText(value, 'password')}
             />
+            </View>
             {/* Temporary show/hide button */}
             <TouchableOpacity
                 onPress={() => {
@@ -144,14 +154,17 @@ export const SignupScreen = () => { // destructuring navigation from props
                 }}>
               <Text>{isSecureEntry2 ? 'Show' : 'Hide'}</Text>
             </TouchableOpacity>
+            <View style={styles.userInputSignup}>
+            <AntDesign name="lock" size={20} color="#9e9e9e" />
             <TextInput
-              style={styles.input}
+              style={styles.inputSignup}
               placeholder='Re-enter Your Password'
               autoCapitalize='none'
               secureTextEntry={isSecureEntry2}
               value={confirmPassword}
               onChangeText={(value) => handleOnChangeText(value, 'confirmPassword')}
             />
+            </View>
         </View>
 
 
