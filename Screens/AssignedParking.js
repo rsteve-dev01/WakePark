@@ -80,11 +80,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     assignButton: {
-        backgroundColor: '#FFD700', // Gold color
+        backgroundColor: '#FFD700',
         paddingHorizontal: 20,
         paddingVertical: 10,
         borderRadius: 20,
-        // Shadow for iOS
+        
         shadowColor: "#000",
         shadowOffset: {
           width: 0,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        // Elevation for Android
+        
         elevation: 10,
       },
     buttonText: {
