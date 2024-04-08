@@ -69,9 +69,9 @@ export const HomePage = ({ navigation }) => {
                             <Image source={require('../images/mps.png')} style={styles.navIcon} />
                             <Text style={styles.navText}>My Parking Spots</Text>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('Parking Lot Full View')} style={styles.navItem}>
+                        <TouchableOpacity onPress={() => navigation.navigate('Navigation')} style={styles.navItem}>
                             <Image source={require('../images/pinpoint.png')} style={styles.navIcon} />
-                            <Text style={styles.navText}>Parking Lot Full View</Text>
+                            <Text style={styles.navText}>Find Parking Spot</Text>
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => navigation.navigate('Payments')} style={styles.navItem}>
                             <Image source={require('../images/pi.png')} style={styles.navIcon} />
