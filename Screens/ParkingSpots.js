@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { KeyboardAvoidingView, ImageBackground, Image, StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { ImageBackground, Image, Text, View, TouchableOpacity } from 'react-native';
 import {styles} from '../StyleSheet.js'; // corrected import
 
 export const ParkingSpots = ({ navigation }) => {
@@ -15,20 +15,24 @@ export const ParkingSpots = ({ navigation }) => {
                     <TouchableOpacity style={{...styles.leftContainer, ...styles.parkingButton}} onPress={() => navigation.navigate('PreviousParking')}>
                         <Text style={styles.parkingButtonText}>Save Parking Spot</Text>
                     </TouchableOpacity>
-                    <Text>Icon</Text>
-                    <Text>Camera Icon</Text>
+                    <Image source={require('../images/exclamation.png')} style={styles.exIcon}/>
+                    <Image source={require('../images/camera-01.png')} style={styles.cameraIcon}/>
                 </View>
                 <View style={{flexDirection:'row', ...styles.container}}>
                     <TouchableOpacity style={{...styles.leftContainer, ...styles.parkingButton}}>
                         <Text style={styles.parkingButtonText}>Get Assigned Parking</Text>
                     </TouchableOpacity>
-                    <Text>Icon</Text>
-                    <Text>Camera Icon</Text>
+                    <Image source={require('../images/exclamation.png')} style={styles.exIcon}/>
+                    <Image source={require('../images/camera-01.png')} style={styles.cameraIcon}/>
                 </View>
                 <TouchableOpacity style={styles.parkingButton}>
                     <Text style={styles.parkingButtonText}>Open Previously Saved Parking Spots</Text>
                 </TouchableOpacity>
                 <View style={styles.container}></View>
+
+                <TouchableOpacity onPress={() => navigation.navigate('Support')} style={styles.contactContainer}>
+                    <Image source={require('../images/si.png')} style={styles.supportIcon} />
+                </TouchableOpacity>
             </View>
         </ImageBackground>
     );
