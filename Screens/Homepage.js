@@ -129,5 +129,5 @@ export const HomePage = ({ navigation }) => {
         </DrawerLayoutAndroid>
     );
 }
- 
+
 export default HomePage;
