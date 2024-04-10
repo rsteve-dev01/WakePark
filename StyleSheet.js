@@ -45,10 +45,10 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  titleContainer: {
+  titleContainer1: {
     flexDirection: 'row',
     alignItems: 'center',
-    margin: 12,
+    margin: 6,
   },
   icon: {
     width: 40,
@@ -122,6 +122,30 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 // Homepage
+homepageContainer: {
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingHorizontal: 15,
+},
+titleContainer: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 10,
+},
+titleIconsContainer: {
+  flexDirection: 'row',
+  marginLeft: 'auto',
+  alignItems: 'center',
+},
+titleIconContainer: {
+  padding: 5,
+},
+titleIcon: {
+  width: 30,
+  height: 30,
+  resizeMode: 'contain',
+},
   imageBackground: {
     flex: 1,
     justifyContent: 'flex-end', // Align title at the bottom
@@ -156,7 +180,7 @@ export const styles = StyleSheet.create({
   },
   image: {
     width: '95%',
-    height: '27%',
+    height: '30%',
     margin: 10,
     borderRadius: 10,
   },
@@ -185,7 +209,6 @@ export const styles = StyleSheet.create({
   },
   toggleButtons: {
     flexDirection: 'row',
-    justifyContent: 'center',
     backgroundColor: '#fff',
     borderRadius: 10,
     width: '95%',

@@ -1,18 +1,15 @@
 import React from 'react';
-import {styles} from '../StyleSheet';
-import { auth } from "../database/firebase";
+import { styles } from '../StyleSheet';
 import { getAuth, signOut } from "firebase/auth";
 import { View, Text, Image, TouchableOpacity, ImageBackground, DrawerLayoutAndroid } from 'react-native';
- 
+
 export const HomePage = ({ navigation }) => {
- 
     let drawerRef = React.useRef(null);
- 
+
     const openDrawer = () => {
         drawerRef.current.openDrawer();
     };
 
-    //Function to log the user out and send them back to the homepage
     const auth = getAuth();
     const Logout = () => {
         const auth = getAuth();
@@ -24,12 +21,10 @@ export const HomePage = ({ navigation }) => {
         });
     };
 
-    // Function to handle linking to Google Maps with the specified address
     const openGoogleMaps = () => {
         Linking.openURL('https://www.google.com/maps/search/?api=1&query=6600+Louisburg+Rd+C,+Raleigh,+NC+27616');
     };
-    
-    //statements to get the user's email and the name they will be displayed as in the drawer
+
     const user = auth.currentUser;
     const email = user.email;
     const username = email.substring(0, email.indexOf("@"));
@@ -44,7 +39,7 @@ export const HomePage = ({ navigation }) => {
                 <View>
                     <View style={styles.drawerHeader}>
                         <Text style={styles.drawerTitle}>Hi, {username}!</Text>
-                        <Text style={{...styles.greyText, fontSize:14, }}>{user.email}</Text>
+                        <Text style={{ ...styles.greyText, fontSize: 14 }}>{user.email}</Text>
                     </View>
                     <View style={styles.drawerContainer}>
                         <Text onPress={() => navigation.navigate('Profile')}>Profile</Text>
@@ -56,13 +51,13 @@ export const HomePage = ({ navigation }) => {
             <ImageBackground
                 source={require('../assets/bg2.png')}
                 style={styles.background}>
- 
-                <View style={styles.container}>
+
+                <View style={styles.homepageContainer}>
                     <TouchableOpacity onPress={openDrawer} style={styles.menuIconContainer}>
                         <Image source={require('../images/menu-2.png')} style={styles.menuIcon} />
                     </TouchableOpacity>
                     <Image source={require('../images/homepage_pic.png')} style={styles.image} />
- 
+
                     {/* Navigation Bar */}
                     <View style={styles.navigationBar}>
                         <TouchableOpacity onPress={() => navigation.navigate('ParkingSpots')} style={styles.navItem}>
@@ -78,23 +73,27 @@ export const HomePage = ({ navigation }) => {
                             <Text style={styles.navText}>Payments</Text>
                         </TouchableOpacity>
                     </View>
- 
+
                     {/* Title */}
-                    <View style={styles.titleContainer}>
+                    <View style={styles.titleContainer1}>
                         <Image source={require('../assets/icon.png')} style={styles.icon} />
                         <Text style={styles.titleText}>Cheapest/Closest Parking Spots</Text>
                     </View>
- 
+
                     {/* Toggle Buttons */}
                     <View style={styles.toggleButtons}>
                         <Text style={styles.toggleText}>Cheapest</Text>
                         <Text style={styles.toggleText}>Closest</Text>
-                       {/* <TouchableOpacity style={styles.magnifyContainer}>
-                            <Text style={styles.toggleText}>Closest</Text>
-                            <Image source={require('../images/magnifying_glass.png')} style={styles.magnifyIcon} />
-            </TouchableOpacity> */}
+                        <View style={styles.titleIconsContainer}>
+                            <TouchableOpacity style={styles.titleIconContainer}>
+                                <Image source={require('../assets/magnifying-glass.png')} style={styles.titleIcon} />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={styles.titleIconContainer}>
+                                <Image source={require('../assets/three-vertical-dots.png')} style={styles.titleIcon} />
+                            </TouchableOpacity>
+                        </View>
                     </View>
- 
+
                     {/* Parking Options */}
                     <View style={styles.parkingOptions}>
                         <View style={styles.option}>
@@ -118,7 +117,7 @@ export const HomePage = ({ navigation }) => {
                             </View>
                         </View>
                     </View>
- 
+
                     {/* Contact Us */}
                     <TouchableOpacity onPress={() => navigation.navigate('Support')} style={styles.contactContainer}>
                         <Text style={styles.contactText}>Contact Us</Text>
