@@ -68,7 +68,6 @@ export const styles = StyleSheet.create({
   },
 // (Login, Payments) -----------------------------------
   input: {
-    addingHorizontal: 5,
     borderColor: '#ccc',
     paddingVertical: 10,
     paddingHorizontal: 5,
@@ -123,6 +122,14 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 // Homepage
+  carouselImage: {
+    flex: 1,
+    width: '110%',
+    height: '110%',
+    resizeMode: 'contain',
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
   drawerContainer: {
     flex: 1,
     paddingTop: 50,
@@ -204,7 +211,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     borderRadius: 25,
-    borderWeight: 50,
     backgroundColor: 'rgb(255, 255, 255)',
     overflow: 'hidden',
   },
@@ -221,6 +227,76 @@ export const styles = StyleSheet.create({
     backgroundColor: 'rgb(255, 255, 255)',
     marginBottom: 20,
     overflow: 'hidden',
+  },
+  optionText: {
+    color: '#888',
+    fontSize: 20,
+    textAlign: 'center',
+    padding: 5,
+    left: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 15,
+    borderRadius: 25,
+    borderWeight: 50,
+    backgroundColor: 'rgb(255, 255, 255)',
+    overflow: 'hidden',
+  },
+  drawerContainer: {
+    flex: 1,
+    paddingTop: 50,
+    paddingLeft: 20,
+    height: '100%',
+    backgroundColor: '#F5F5F5',
+  },
+  drawerHeader: {
+    flex: 0,
+    height: "36%",
+    paddingLeft: 20,
+    paddingTop: 30,
+    paddingBottom: 30,
+    paddingRight: 20,
+    backgroundColor: '#b9dbe3',
+  },
+  drawerTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+  logoutLink: {
+    color: 'blue',
+    textDecorationLine: 'underline',
+  },
+  menuIconContainer: {
+    position: 'absolute',
+    top: '7%',
+    right: '10%',
+    zIndex: 1,
+  },
+  menuIcon: {
+    width: 30,
+    height: 30,
+  },
+  navigationBar: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: '#fff',
+    padding: 10,
+    borderRadius: 10,
+  },
+  navItem: {
+    alignItems: 'center',
+    paddingHorizontal: 10,
+  },
+  navIcon: {
+    width: 20,
+    height: 20,
+    marginRight: 5,
+  },
+  navText: {
+    color: '#000',
+    fontSize: 13,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
   },
   contactContainer: {
     flexDirection: 'row',
@@ -279,8 +355,22 @@ export const styles = StyleSheet.create({
     color: 'blue',
   },
 // ParkingSpots Page
+  cameraIcon: {
+    top: 5,
+    width: '20%',
+    height: '50%',
+    marginLeft: 5,
+    resizeMode: 'contain',
+  },
+  exIcon: {
+    top: 10,
+    width: '10%',
+    height: '30%',
+    marginLeft: 5,
+    resizeMode: 'contain',
+  },
   parkingButton: {
-    backgroundColor: 'dimgrey',
+    backgroundColor: 'white',
     borderRadius: 50,
     paddingVertical: 15,
     paddingHorizontal: 20,
@@ -288,7 +378,6 @@ export const styles = StyleSheet.create({
     marginTop: 20,
   },
   parkingButtonText: {
-    color: 'white',
     fontSize: 14,
     fontWeight: 'bold',
     fontStyle: 'italic'
@@ -324,6 +413,25 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
 // Signup Page
+  showHideButton: {
+    position: 'absolute',
+    right: 10,
+  },
+  showHideButtonText: {
+    color: '#888',
+  },
+  signupButton: {
+    backgroundColor: '#1d4f7e',
+    borderRadius: 50,
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    alignItems: 'center',
+  },
+  signupButtonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
   userInputSignup: {
     flexDirection: 'row',
     alignItems: 'center',

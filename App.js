@@ -20,6 +20,12 @@ import HomepageNew from './Screens/Updates/HomepageNew'; // Change this later
 import HomePage from './Screens/Homepage'; // Change this later
 import ParkingSpots from './Screens/ParkingSpots';
 import AssignedParking from './Screens/AssignedParking';
+import PreviousParking from './Screens/PreviousParking';
+import SavedParkingList from './Screens/SavedParkingList';
+import Profile from './Screens/Profile'
+import Payments from './Screens/Payments'
+import SavedPayments from './Screens/SavedPayments'
+import Navigation from './Screens/NavigationPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +45,13 @@ export default function App(){
                 <Stack.Screen name="Signup" component={SignupScreen}/>
                 <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
                 <Stack.Screen name="ParkingSpots" component={ParkingSpots}/>
+                <Stack.Screen name="PreviousParking" component={PreviousParking}/>
+                <Stack.Screen name="SavedParkingList" component={SavedParkingList}/>
+                <Stack.Screen name="Profile" component={Profile}/>
+                <Stack.Screen name="Payments" component={Payments}/>
+                <Stack.Screen name="SavedPayments" component={SavedPayments}/>
+                <Stack.Screen name="Navigation" component={Navigation}/>
+
             </Stack.Navigator>
         </NavigationContainer>
     )
