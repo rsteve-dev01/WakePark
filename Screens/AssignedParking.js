@@ -4,7 +4,7 @@ import { View, Text, Image, ImageBackground, StyleSheet, TouchableOpacity } from
 
 export const AssignedParking = ({ navigation }) => {
     return (
-        <ImageBackground source={require('../assets/Background.jpg')}
+        <ImageBackground source={require('../assets/bg2.png')}
         style={styles.background}>
 
         {/* Title */}
