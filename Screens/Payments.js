@@ -35,7 +35,7 @@ const Payments = ({ navigation }) => {
   };
 
   return (
-    <ImageBackground source={require('../assets/bg1.png')} style={styles.backgroundImage}>
+    <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
       <View style={styles.container}>
         <Image source={require('../assets/transparent_icon.png')} style={styles.logo} />
 
