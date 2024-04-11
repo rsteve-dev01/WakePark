@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const helpSearch =async (query) => {
-   const response= await axios.get("http://localhost:3000/search/helpcenter",
+const helpSearch =async (query,API_endpoint) => {
+   const response= await axios.get(API_endpoint,
     {
         headers: {
            "Content-Type": "application/json",
