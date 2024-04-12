@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { getCurrentUser } from '../database/firebase';
 import {styles} from '../StyleSheet';
 
-export default function Profile() {
+export default function Profile( {navigation} ) {
   const [user, setUser] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -41,6 +41,9 @@ export default function Profile() {
         <View style={styles.userInfo}>
           <Text>Email:</Text>
           <Text>{user.email}</Text>
+
+          <Text onPress={() => navigation.navigate('HomePage')}>Profile</Text>
+          
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Text style={styles.toggleButtonProfile}>
               {showPassword ? 'Hide Password' : 'Show Password'}

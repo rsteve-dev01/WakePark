@@ -39,15 +39,17 @@ export const HomePage = ({ navigation }) => {
             ref={drawerRef}
             drawerWidth={300}
             drawerPosition={'left'}
-            drawerBackgroundColor={'#F5F5F5'}
+            drawerBackgroundColor={'#b9dbe3'}
             renderNavigationView={() => (
                 <View>
                     <View style={styles.drawerHeader}>
                         <Text style={styles.drawerTitle}>Hi, {username}!</Text>
-                        <Text style={{...styles.greyText, fontSize:14, }}>{user.email}</Text>
+                        <Text style={styles.drawerSubtext}>{user.email}</Text>
                     </View>
                     <View style={styles.drawerContainer}>
-                        <Text onPress={() => navigation.navigate('Profile')}>Profile</Text>
+                        <Text style={styles.drawerItems} onPress={() => navigation.navigate('HomePage')}>Home Page</Text>
+                        <Text style={styles.drawerItems} onPress={() => navigation.navigate('Profile')}>Profile</Text>
+                        <Text style={styles.drawerItems} onPress={() => navigation.navigate('Settings')}>Settings</Text>
                         <Text style={styles.logoutLink} onPress={() => Logout()}>Logout</Text>
                     </View>
                 </View>

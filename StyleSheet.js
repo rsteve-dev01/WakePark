@@ -246,7 +246,8 @@ export const styles = StyleSheet.create({
     paddingTop: 50,
     paddingLeft: 20,
     height: '100%',
-    backgroundColor: '#F5F5F5',
+    //backgroundColor: '#F5F5F5',
+    backgroundColor: '#b9dbe3',
   },
   drawerHeader: {
     flex: 0,
@@ -255,12 +256,23 @@ export const styles = StyleSheet.create({
     paddingTop: 30,
     paddingBottom: 30,
     paddingRight: 20,
-    backgroundColor: '#b9dbe3',
+    backgroundColor: 'slategrey',
   },
   drawerTitle: {
     fontSize: 24,
     fontWeight: 'bold',
     color: 'black',
+  },
+  drawerItems: {
+    fontSize: 20,
+    paddingBottom: 50,
+    fontWeight: 'bold',
+    color: 'darkblue',
+  },
+  drawerSubtext: {
+    fontSize: 14,
+    color: 'white',
+    marginBottom: 20,
   },
   logoutLink: {
     color: 'blue',
