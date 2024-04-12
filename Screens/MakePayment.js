@@ -45,6 +45,8 @@ const MakePayment = () => {
         <Text style={styles.savedPaymentsLink} onPress={() => navigation.navigate('SavedPayments')}>
           Open Previously Saved Payments
         </Text>
+        {/* Image in the bottom right */}
+        <Image source={require('../images/si.png')} style={styles.bottomRightImage} />
       </View>
     </ImageBackground>
   );
@@ -114,6 +116,13 @@ const styles = StyleSheet.create({
   savedPaymentsLink: {
     textDecorationLine: 'underline',
     marginTop: 80,
+  },
+  bottomRightImage: {
+    position: 'absolute',
+    bottom: 40,
+    right: 30,
+    width: 50,
+    height: 50,
   },
 });
 
