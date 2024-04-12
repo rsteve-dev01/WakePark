@@ -45,11 +45,6 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  titleContainer1: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    margin: 6,
-  },
   icon: {
     width: 40,
     height: 40,
@@ -59,6 +54,7 @@ export const styles = StyleSheet.create({
   titleText: {
     fontSize: 20,
     fontWeight: 'bold',
+    margin: 25,
   },
 // (Login, ParkingSpots, Payments, Signup) -----------------------------------
   logo: {
@@ -126,7 +122,7 @@ homepageContainer: {
   flex: 1,
   alignItems: 'center',
   justifyContent: 'center',
-  paddingHorizontal: 15,
+  paddingHorizontal: 1,
 },
 titleContainer: {
   flexDirection: 'row',
@@ -135,7 +131,6 @@ titleContainer: {
 },
 titleIconsContainer: {
   flexDirection: 'row',
-  marginLeft: 'auto',
   alignItems: 'center',
 },
 titleIconContainer: {
@@ -163,11 +158,6 @@ titleIcon: {
     paddingLeft: 20,
     backgroundColor: '#F5F5F5',
   },
-  homepageContainer: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   menuIconContainer: {
     position: 'absolute',
     top: '7%',
@@ -181,7 +171,7 @@ titleIcon: {
   image: {
     width: '95%',
     height: '30%',
-    margin: 10,
+    margin: 30,
     borderRadius: 10,
   },
   navigationBar: {
@@ -197,10 +187,6 @@ titleIcon: {
     height: 20,
     marginRight: 5,
   },
-  navItem: {
-    alignItems: 'center',
-    paddingHorizontal: 10,
-  },
   navText: {
     color: '#000',
     fontSize: 13,
@@ -211,6 +197,8 @@ titleIcon: {
     flexDirection: 'row',
     backgroundColor: '#fff',
     borderRadius: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
     width: '95%',
   },
   toggleText: {
@@ -221,9 +209,10 @@ titleIcon: {
   },
   parkingOptions: {
     position: 'absolute',
-    top: 365,
+    bottom: 100,
     left: 30,
     right: 50,
+    paddingHorizontal: 1,
   },
   option: {
     flexDirection: 'row',
@@ -238,6 +227,7 @@ titleIcon: {
     left: 10,
     top: 10,
     paddingVertical: 5,
+    paddingHorizontal: 1,
     borderRadius: 10,
     backgroundColor: 'rgb(255, 255, 255)',
     marginBottom: 20,
@@ -245,7 +235,7 @@ titleIcon: {
   },
   optionText: {
     color: '#888',
-    fontSize: 15,
+    fontSize: 20,
     textAlign: 'center',
     padding: 5,
     left: 10,
@@ -257,8 +247,8 @@ titleIcon: {
   },
   drawerContainer: {
     flex: 1,
-    paddingTop: 50,
-    paddingLeft: 20,
+    // paddingTop: 50,
+    // paddingLeft: 20,
     height: '100%',
     backgroundColor: '#F5F5F5',
   },
@@ -276,9 +266,28 @@ titleIcon: {
     fontWeight: 'bold',
     color: 'black',
   },
+  drawerItems: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'black',
+    padding: 20
+  },
+  drawerSubtext: {
+    fontSize: 14,
+    color: '#888',
+    marginBottom: 20,
+  },
   logoutLink: {
     color: 'blue',
     textDecorationLine: 'underline',
+  },
+  drawerButtons: {
+  },
+  drawerSeperator: {
+    borderColor: 'lightgrey',
+    borderWidth: 1,
+    marginLeft: 15,
+    marginRight: 15,
   },
   menuIconContainer: {
     position: 'absolute',
@@ -294,18 +303,12 @@ titleIcon: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     backgroundColor: '#fff',
-    padding: 10,
+    padding: 5,
     borderRadius: 10,
   },
   navItem: {
     alignItems: 'center',
-    paddingHorizontal: 10,
-  },
-  navIcon: {
-    width: 17,
-    height: 17,
-    marginRight: 5,
-    resizeMode: 'contain',
+    paddingHorizontal: 20,
   },
   navText: {
     color: '#000',
@@ -321,13 +324,9 @@ titleIcon: {
     marginBottom: 10,
     marginRight: 10,
   },
-  contactText: {
-    fontSize: 20,
-    marginRight: 10,
-  },
   supportIcon: {
-    width: 35,
-    height: 35,
+    width: 50,
+    height: 50,
   },
 // Login Page
   greyText: {

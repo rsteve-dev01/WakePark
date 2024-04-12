@@ -75,7 +75,7 @@ export const HomePage = ({ navigation }) => {
                     </View>
 
                     {/* Title */}
-                    <View style={styles.titleContainer1}>
+                    <View style={styles.titleContainer}>
                         <Image source={require('../assets/icon.png')} style={styles.icon} />
                         <Text style={styles.titleText}>Cheapest/Closest Parking Spots</Text>
                     </View>
@@ -120,7 +120,6 @@ export const HomePage = ({ navigation }) => {
 
                     {/* Contact Us */}
                     <TouchableOpacity onPress={() => navigation.navigate('Support')} style={styles.contactContainer}>
-                        <Text style={styles.contactText}>Contact Us</Text>
                         <Image source={require('../images/si.png')} style={styles.supportIcon} />
                     </TouchableOpacity>
                 </View>

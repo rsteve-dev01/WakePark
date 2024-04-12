@@ -1,9 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, ImageBackground, Image, TouchableOpacity, DrawerLayoutAndroid, Text } from 'react-native';
+import { styles } from '../StyleSheet';
 import { getCurrentUser } from '../database/firebase';
-import {styles} from '../StyleSheet';
+import DrawerContent from './DrawerContent';
 
-export default function Profile() {
+const Profile = ({ navigation }) => {
+
+  let drawerRef = useRef(null);
+
+  const openDrawer = () => {
+    drawerRef.current.openDrawer();
+  };
+
   const [user, setUser] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -35,12 +43,31 @@ export default function Profile() {
   };
 
   return (
-    <View style={styles.profileContainer}>
+    <DrawerLayoutAndroid
+      ref={drawerRef}
+      drawerWidth={300}
+      drawerPosition={'left'}
+      drawerBackgroundColor={'#F5F5F5'}
+      renderNavigationView={() => (
+        <DrawerContent navigation={navigation} drawerRef={drawerRef} />
+      )}
+    >
+      <ImageBackground
+        source={require('../assets/bg1.png')}
+        style={styles.background}
+      >
+        <TouchableOpacity onPress={openDrawer} style={styles.menuIconContainer}>
+          <Image source={require('../images/menu-2.png')} style={styles.menuIcon} />
+        </TouchableOpacity>
+        <View style={styles.profileContainer}>
       <Text style={styles.heading}>Profile</Text>
       {user ? ( // Check if user data is available
         <View style={styles.userInfo}>
           <Text>Email:</Text>
           <Text>{user.email}</Text>
+
+          <Text onPress={() => navigation.navigate('HomePage')}>Home Page</Text>
+          
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Text style={styles.toggleButtonProfile}>
               {showPassword ? 'Hide Password' : 'Show Password'}
@@ -52,5 +79,9 @@ export default function Profile() {
         <Text>Loading user data...</Text>
       )}
     </View>
+      </ImageBackground>
+    </DrawerLayoutAndroid>
   );
-}
+};
+
+export default Profile;
