@@ -42,7 +42,7 @@ export default function Profile( {navigation} ) {
           <Text>Email:</Text>
           <Text>{user.email}</Text>
 
-          <Text onPress={() => navigation.navigate('HomePage')}>Profile</Text>
+          <Text onPress={() => navigation.navigate('HomePage')}>Home Page</Text>
           
           <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
             <Text style={styles.toggleButtonProfile}>

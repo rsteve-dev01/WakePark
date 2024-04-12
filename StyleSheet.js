@@ -257,11 +257,9 @@ titleIcon: {
   },
   drawerContainer: {
     flex: 1,
-    paddingTop: 50,
-    paddingLeft: 20,
+    // paddingTop: 50,
+    // paddingLeft: 20,
     height: '100%',
-    //backgroundColor: '#F5F5F5',
-    backgroundColor: '#b9dbe3',
   },
   drawerHeader: {
     flex: 0,
@@ -270,7 +268,7 @@ titleIcon: {
     paddingTop: 30,
     paddingBottom: 30,
     paddingRight: 20,
-    backgroundColor: 'slategrey',
+    backgroundColor: '#b9dbe3',
   },
   drawerTitle: {
     fontSize: 24,
@@ -279,14 +277,23 @@ titleIcon: {
   },
   drawerItems: {
     fontSize: 20,
-    paddingBottom: 50,
     fontWeight: 'bold',
-    color: 'darkblue',
+    color: 'black',
+    padding: 20
   },
   drawerSubtext: {
     fontSize: 14,
-    color: 'white',
+    color: '#888',
     marginBottom: 20,
+  },
+  drawerButtons: {
+    
+  },
+  drawerSeperator: {
+    borderColor: 'lightgrey',
+    borderWidth: 1,
+    marginLeft: 15,
+    marginRight: 15,
   },
   logoutLink: {
     color: 'blue',

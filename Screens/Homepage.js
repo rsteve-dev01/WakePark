@@ -1,7 +1,7 @@
 import React from 'react';
 import { styles } from '../StyleSheet';
 import { getAuth, signOut } from "firebase/auth";
-import { View, Text, Image, TouchableOpacity, ImageBackground, DrawerLayoutAndroid } from 'react-native';
+import { View, Text, Image, TouchableOpacity, ImageBackground, DrawerLayoutAndroid, } from 'react-native';
 
 export const HomePage = ({ navigation }) => {
     let drawerRef = React.useRef(null);
@@ -10,6 +10,7 @@ export const HomePage = ({ navigation }) => {
         drawerRef.current.openDrawer();
     };
 
+    //method to logout the user
     const auth = getAuth();
     const Logout = () => {
         const auth = getAuth();
@@ -17,7 +18,7 @@ export const HomePage = ({ navigation }) => {
             console.log('signout successful');
             navigation.navigate('Login');
         }).catch((error) => {
-            console.log('uh oh');
+            console.log('signout unsuccessful');
         });
     };
 
@@ -34,7 +35,7 @@ export const HomePage = ({ navigation }) => {
             ref={drawerRef}
             drawerWidth={300}
             drawerPosition={'left'}
-            drawerBackgroundColor={'#b9dbe3'}
+            drawerBackgroundColor={'#F5F5F5'}
             renderNavigationView={() => (
                 <View>
                     <View style={styles.drawerHeader}>
@@ -42,10 +43,20 @@ export const HomePage = ({ navigation }) => {
                         <Text style={styles.drawerSubtext}>{user.email}</Text>
                     </View>
                     <View style={styles.drawerContainer}>
-                        <Text style={styles.drawerItems} onPress={() => navigation.navigate('HomePage')}>Home Page</Text>
-                        <Text style={styles.drawerItems} onPress={() => navigation.navigate('Profile')}>Profile</Text>
-                        <Text style={styles.drawerItems} onPress={() => navigation.navigate('Settings')}>Settings</Text>
-                        <Text style={styles.logoutLink} onPress={() => Logout()}>Logout</Text>
+                        <TouchableOpacity style={styles.drawerButtons} onPress={() => navigation.navigate('Profile')}>
+                            <Text style={styles.drawerItems}>Profile</Text>
+                        </TouchableOpacity>
+
+                        <View style={styles.drawerSeperator}/>
+                        <TouchableOpacity style={styles.drawerButtons} onPress={() => navigation.navigate('Settings')}>
+                            <Text style={styles.drawerItems}>Settings</Text>
+                        </TouchableOpacity>
+                        <View style={styles.drawerSeperator}/>
+                        
+                        <TouchableOpacity style={styles.drawerButtons} onPress={() => Logout()}>
+                            <Text style={styles.drawerItems} >Logout</Text>
+                        </TouchableOpacity>
+                        <View style={styles.drawerSeperator}/>
                     </View>
                 </View>
             )}
