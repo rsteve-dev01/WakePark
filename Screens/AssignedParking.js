@@ -9,7 +9,7 @@ export const AssignedParking = ({ navigation }) => {
 
         {/* Title */}
         <View style={styles.titleContainer}>
-            <Image source={require('../assets/icon.png')} style={styles.icon}/>
+            <Image source={require('../assets/transparent_icon.png')} style={styles.icon}/>
         </View>
 
         {/* Text */}
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
         textAlign: 'center',
         color: 'lightblue',
-        margin: 20,
+        margin: 10,
       },
     buttonContainer:{
         flex: 1,
@@ -80,9 +80,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     assignButton: {
-        backgroundColor: '#FFD700',
-        paddingHorizontal: 20,
-        paddingVertical: 10,
+        backgroundColor: '#1d4f7e',
+        paddingHorizontal: 25,
+        paddingVertical: 15,
         borderRadius: 20,
         
         shadowColor: "#000",

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button } from 'react-native';
+import { View, TextInput, Button, ImageBackground, Image, Text } from 'react-native';
+import {styles} from '../StyleSheet.js'; // corrected import
 
 export const PreviousParking = ({ navigation }) => {
   const [parkingSpot, setParkingSpot] = useState('');
@@ -11,15 +12,25 @@ export const PreviousParking = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <TextInput
-        placeholder="Enter parking spot details"
-        value={parkingSpot}
-        onChangeText={setParkingSpot}
-        style={{ borderWidth: 1, padding: 10, marginBottom: 10, width: '80%' }}
-      />
-      <Button title="Save" onPress={handleSave} />
-    </View>
+    <ImageBackground
+      source={require('../assets/bg2.png')} // Replace 'background.jpg' with your image file
+      style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
+    >
+      <View style={{justifyContent: 'center', alignItems: 'center' }}>
+
+        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+          <Image source={require('../assets/transparent_icon.png')} style={styles.logo}/>
+          <Text style={styles.loginText}>Save Parking Spot</Text>
+        </View>
+        <TextInput
+          placeholder="Enter parking spot details"
+          value={parkingSpot}
+          onChangeText={setParkingSpot}
+          style={{ borderWidth: 1, padding: 10, marginBottom: 10, width: '80%', backgroundColor: 'white' }}
+        />
+        <Button title="Save" onPress={handleSave} />
+      </View>
+    </ImageBackground>
   );
 };
 

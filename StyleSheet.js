@@ -45,10 +45,10 @@ export const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  titleContainer: {
+  titleContainer1: {
     flexDirection: 'row',
     alignItems: 'center',
-    margin: 12,
+    margin: 6,
   },
   icon: {
     width: 40,
@@ -122,19 +122,51 @@ export const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 // Homepage
-  carouselImage: {
+homepageContainer: {
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  paddingHorizontal: 15,
+},
+titleContainer: {
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: 10,
+},
+titleIconsContainer: {
+  flexDirection: 'row',
+  marginLeft: 'auto',
+  alignItems: 'center',
+},
+titleIconContainer: {
+  padding: 5,
+},
+titleIcon: {
+  width: 30,
+  height: 30,
+  resizeMode: 'contain',
+},
+  imageBackground: {
     flex: 1,
-    width: '110%',
-    height: '110%',
-    resizeMode: 'contain',
-    justifyContent: 'center',
-    alignContent: 'center',
+    justifyContent: 'flex-end', // Align title at the bottom
+  },
+  title: {
+    fontSize: 18,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fading effect background color
   },
   drawerContainer: {
     flex: 1,
     paddingTop: 50,
     paddingLeft: 20,
     backgroundColor: '#F5F5F5',
+  },
+  homepageContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   menuIconContainer: {
     position: 'absolute',
@@ -147,9 +179,9 @@ export const styles = StyleSheet.create({
     height: 30,
   },
   image: {
-    width: '100%',
+    width: '95%',
     height: '30%',
-    margin: 30,
+    margin: 10,
     borderRadius: 10,
   },
   navigationBar: {
@@ -176,9 +208,7 @@ export const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   toggleButtons: {
-    textAlign: 'center',
     flexDirection: 'row',
-    justifyContent: 'center',
     backgroundColor: '#fff',
     borderRadius: 10,
     width: '95%',
@@ -187,32 +217,18 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     fontStyle: 'italic',
-    textAlign: 'center',
-    margin: 20,
+    margin: 10,
   },
   parkingOptions: {
     position: 'absolute',
-    bottom: 100,
+    top: 365,
     left: 30,
     right: 50,
-    paddingHorizontal: 1,
   },
   option: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginBottom: 10,
-  },
-  optionText: {
-    color: '#888',
-    fontSize: 20,
-    textAlign: 'center',
-    padding: 5,
-    left: 10,
-    paddingHorizontal: 20,
-    paddingVertical: 15,
-    borderRadius: 25,
-    backgroundColor: 'rgb(255, 255, 255)',
-    overflow: 'hidden',
   },
   optionDescription: {
     color: '#888',
@@ -222,7 +238,6 @@ export const styles = StyleSheet.create({
     left: 10,
     top: 10,
     paddingVertical: 5,
-    paddingHorizontal: 1,
     borderRadius: 10,
     backgroundColor: 'rgb(255, 255, 255)',
     marginBottom: 20,
@@ -230,14 +245,13 @@ export const styles = StyleSheet.create({
   },
   optionText: {
     color: '#888',
-    fontSize: 20,
+    fontSize: 15,
     textAlign: 'center',
     padding: 5,
     left: 10,
     paddingHorizontal: 20,
     paddingVertical: 15,
     borderRadius: 25,
-    borderWeight: 50,
     backgroundColor: 'rgb(255, 255, 255)',
     overflow: 'hidden',
   },
@@ -300,9 +314,10 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   navIcon: {
-    width: 20,
-    height: 20,
+    width: 17,
+    height: 17,
     marginRight: 5,
+    resizeMode: 'contain',
   },
   navText: {
     color: '#000',
@@ -323,8 +338,8 @@ export const styles = StyleSheet.create({
     marginRight: 10,
   },
   supportIcon: {
-    width: 45,
-    height: 45,
+    width: 35,
+    height: 35,
   },
 // Login Page
   greyText: {

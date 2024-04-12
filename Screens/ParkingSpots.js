@@ -19,13 +19,13 @@ export const ParkingSpots = ({ navigation }) => {
                     <Image source={require('../images/camera-01.png')} style={styles.cameraIcon}/>
                 </View>
                 <View style={{flexDirection:'row', ...styles.container}}>
-                    <TouchableOpacity style={{...styles.leftContainer, ...styles.parkingButton}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('AssignedParking')} style={{...styles.leftContainer, ...styles.parkingButton}}>
                         <Text style={styles.parkingButtonText}>Get Assigned Parking</Text>
                     </TouchableOpacity>
                     <Image source={require('../images/exclamation.png')} style={styles.exIcon}/>
                     <Image source={require('../images/camera-01.png')} style={styles.cameraIcon}/>
                 </View>
-                <TouchableOpacity style={styles.parkingButton}>
+                <TouchableOpacity onPress={() => navigation.navigate('SavedParkingList')} style={styles.parkingButton}>
                     <Text style={styles.parkingButtonText}>Open Previously Saved Parking Spots</Text>
                 </TouchableOpacity>
                 <View style={styles.container}></View>

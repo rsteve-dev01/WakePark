@@ -32,12 +32,13 @@ const Stack = createNativeStackNavigator();
 export default function App(){
     return(
         <NavigationContainer>
-            <Stack.Navigator initialRouteName="AssignedParking"
+            <Stack.Navigator initialRouteName="Onboarding"
             // Hide all headers on the pages
             screenOptions = {{
                 headerShown: false
             }}
             >
+                <Stack.Screen name="Onboarding" component={Onboarding} />
                 <Stack.Screen name="AssignedParking" component={AssignedParking} />
                 <Stack.Screen name="HomePage" component={HomePage} />
                 <Stack.Screen name="HomepageNew" component={HomepageNew} />
