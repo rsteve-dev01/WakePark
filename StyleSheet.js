@@ -249,8 +249,9 @@ titleIcon: {
     flex: 1,
     // paddingTop: 50,
     // paddingLeft: 20,
+    // paddingTop: 50,
+    // paddingLeft: 20,
     height: '100%',
-    backgroundColor: '#F5F5F5',
   },
   drawerHeader: {
     flex: 0,
@@ -265,17 +266,6 @@ titleIcon: {
     fontSize: 24,
     fontWeight: 'bold',
     color: 'black',
-  },
-  drawerItems: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    color: 'black',
-    padding: 20
-  },
-  drawerSubtext: {
-    fontSize: 14,
-    color: '#888',
-    marginBottom: 20,
   },
   logoutLink: {
     color: 'blue',
