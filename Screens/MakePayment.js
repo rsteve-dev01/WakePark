@@ -7,6 +7,24 @@ const MakePayment = () => {
   const [expirationDate, setExpirationDate] = useState('');
   const navigation = useNavigation();
 
+  const handleCardNumberChange = (input) => {
+    let formattedInput = input.replace(/\D/g, '');
+    formattedInput = formattedInput.substring(0, 16);
+    if (formattedInput.length > 0) {
+      formattedInput = formattedInput.match(/.{1,4}/g).join('-');
+    }
+    setCardNumber(formattedInput);
+  };
+
+  const handleExpirationDateChange = (input) => {
+    let formattedInput = input.replace(/\D/g, '');
+    formattedInput = formattedInput.substring(0, 4);
+    if (formattedInput.length > 2) {
+      formattedInput = formattedInput.substring(0, 2) + '/' + formattedInput.substring(2);
+    }
+    setExpirationDate(formattedInput);
+  };
+
   const handleConfirmPayment = () => {
     const lastFourDigits = cardNumber.slice(-4);
     navigation.navigate('SavedPayments', { lastFourDigits });
@@ -25,8 +43,9 @@ const MakePayment = () => {
             style={styles.input}
             placeholder="Enter card number"
             keyboardType="numeric"
+            maxLength={19}
             value={cardNumber}
-            onChangeText={setCardNumber}
+            onChangeText={handleCardNumberChange}
           />
         </View>
         <View style={styles.inputContainer}>
@@ -35,8 +54,9 @@ const MakePayment = () => {
             style={styles.input}
             placeholder="MM/YY"
             keyboardType="numeric"
+            maxLength={5}
             value={expirationDate}
-            onChangeText={setExpirationDate}
+            onChangeText={handleExpirationDateChange}
           />
         </View>
         <TouchableOpacity style={styles.confirmButton} onPress={handleConfirmPayment}>
@@ -45,7 +65,6 @@ const MakePayment = () => {
         <Text style={styles.savedPaymentsLink} onPress={() => navigation.navigate('SavedPayments')}>
           Open Previously Saved Payments
         </Text>
-        {/* Image in the bottom right */}
         <Image source={require('../images/si.png')} style={styles.bottomRightImage} />
       </View>
     </ImageBackground>
