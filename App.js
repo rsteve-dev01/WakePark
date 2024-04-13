@@ -6,7 +6,7 @@ import { Text } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import Onboarding from './Screens/Onboarding/Onboarding';
-import HomepageFix from './Screens/HomepageFix';
+import Homepage from './Screens/Homepage';
 import LoginScreen from './Screens/Login'; // Import Login screen
 import Profile from './Screens/Profile';
 import ParkingSpots from './Screens/ParkingSpots';
@@ -26,8 +26,8 @@ const HomepageTabs = () => {
   return (
     <Tab.Navigator screenOptions={{ headerShown: false }}>
       <Tab.Screen
-        name="HomepageFix"
-        component={HomepageFix}
+        name="Homepage"
+        component={Homepage}
         options={{
           tabBarLabel: ({ color }) => (
             <Text style={{ color: color, fontSize: 10, marginTop: -7 }}>Home</Text>
@@ -88,7 +88,7 @@ const App = () => {
           <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
           <Stack.Screen name="Signup" component={SignupScreen} />
-          <Stack.Screen name="Home" component={HomepageTabs} />
+          <Stack.Screen name="HomePage" component={HomepageTabs} />
           <Stack.Screen name="AssignedParking" component={AssignedParking} />
           <Stack.Screen name="ParkingSpots" component={ParkingSpots} />
           <Stack.Screen name="PreviousParking" component={PreviousParking} />

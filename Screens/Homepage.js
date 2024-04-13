@@ -1,144 +1,180 @@
 import React from 'react';
-import { styles } from '../StyleSheet';
-import { getAuth, signOut } from "firebase/auth";
-import { View, Text, Image, TouchableOpacity, ImageBackground, DrawerLayoutAndroid, } from 'react-native';
+import { Text, View, FlatList, Image, StyleSheet, ImageBackground, TouchableOpacity, ScrollView } from 'react-native';
 
-export const HomePage = ({ navigation }) => {
-    let drawerRef = React.useRef(null);
+const HomepageFix = () => {
+  const images = [
+    { key: '1', source: require('../assets/updates/Regional-Math-Competition.jpg'), title: 'College Hosts Regional Math Competition' },
+    { key: '2', source: require('../assets/updates/BIOTECH.jpg'), title: 'Biotech Students Connect with Employers' },
+    { key: '3', source: require('../assets/updates/Law-Enforcement.jpg'), title: 'Law Enforcement Cadets Graduate' },
+  ];
 
-    const openDrawer = () => {
-        drawerRef.current.openDrawer();
-    };
+  const prices = [
+    { id: 1, title: 'Southern S1', price: '$5' },
+    { id: 2, title: 'Scott Northern S2', price: '$10' },
+    { id: 3, title: 'RTP S3', price: '$15' },
+    { id: 4, title: 'Eastern S4', price: '$10' },
+  ];
 
-    //method to logout the user
-    const auth = getAuth();
-    const Logout = () => {
-        const auth = getAuth();
-        signOut(auth).then(() => {
-            console.log('signout successful');
-            navigation.navigate('Login');
-        }).catch((error) => {
-            console.log('signout unsuccessful');
-        });
-    };
+  const renderItem = ({ item }) => (
+    <View style={styles.itemContainer}>
+      <Image
+        source={item.source}
+        style={styles.image}
+        resizeMode="cover"
+      />
+      <Text style={styles.title}>{item.title}</Text>
+    </View>
+  );
 
-    const openGoogleMaps = () => {
-        Linking.openURL('https://www.google.com/maps/search/?api=1&query=6600+Louisburg+Rd+C,+Raleigh,+NC+27616');
-    };
+  const renderPriceItem = ({ item }) => (
+    <View style={styles.priceContainer}>
+      <Text style={styles.spotTitle}>{item.title}</Text>
+      <Text style={styles.subtitle}>{item.price}</Text>
+    </View>
+  );
 
-    const user = auth.currentUser;
-    const email = user.email;
-    const username = email.substring(0, email.indexOf("@"));
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <ImageBackground
+        source={require('../assets/bg2.png')}
+        style={styles.backgroundImage}
+      >
+        <View style={styles.sliderContainer}>
+          <Text style={styles.sliderTitle}>WAKE TECH UPDATES</Text>
+          <FlatList
+            data={images}
+            renderItem={renderItem}
+            horizontal
+            pagingEnabled
+          />
+        </View>
 
-    return (
-        <DrawerLayoutAndroid
-            ref={drawerRef}
-            drawerWidth={300}
-            drawerPosition={'left'}
-            drawerBackgroundColor={'#F5F5F5'}
-            renderNavigationView={() => (
-                <View>
-                    <View style={styles.drawerHeader}>
-                        <Text style={styles.drawerTitle}>Hi, {username}!</Text>
-                        <Text style={styles.drawerSubtext}>{user.email}</Text>
-                    </View>
-                    <View style={styles.drawerContainer}>
-                        <TouchableOpacity style={styles.drawerButtons} onPress={() => navigation.navigate('Profile')}>
-                            <Text style={styles.drawerItems}>Profile</Text>
-                        </TouchableOpacity>
+        <View style={styles.parkingPriceContainer}>
+          <View style={styles.waketechIcon}>
+            <Image source={require('../assets/icon.png')} style={styles.icon} />
+            <Text style={styles.priceTitle}>Parking Spots</Text>
+            <View style={styles.titleIconsContainer}>
+              <TouchableOpacity style={styles.titleIconContainer}>
+                <Image source={require('../assets/magnifying-glass.png')} style={styles.titleIcon} />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.titleIconContainer}>
+                <Image source={require('../assets/three-vertical-dots.png')} style={styles.titleIcon} />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <FlatList
+            data={prices}
+            renderItem={renderPriceItem}
+            keyExtractor={(item) => item.id.toString()}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+          />
+        </View>
 
-                        <View style={styles.drawerSeperator}/>
-                        <TouchableOpacity style={styles.drawerButtons} onPress={() => navigation.navigate('Settings')}>
-                            <Text style={styles.drawerItems}>Settings</Text>
-                        </TouchableOpacity>
-                        <View style={styles.drawerSeperator}/>
-                        
-                        <TouchableOpacity style={styles.drawerButtons} onPress={() => Logout()}>
-                            <Text style={styles.drawerItems} >Logout</Text>
-                        </TouchableOpacity>
-                        <View style={styles.drawerSeperator}/>
-                    </View>
-                </View>
-            )}
-        >
-            <ImageBackground
-                source={require('../assets/bg2.png')}
-                style={styles.background}>
+        <View style={styles.featuredContainer}>
+          <Text style={styles.featuredTitle}>Featured Campus</Text>
+          <Image source={require('../assets/WakeTech.png')} style={styles.campus} />
+        </View>
+      </ImageBackground>
+    </ScrollView>
+  );
+};
 
-                <View style={styles.homepageContainer}>
-                    <TouchableOpacity onPress={openDrawer} style={styles.menuIconContainer}>
-                        <Image source={require('../images/menu-2.png')} style={styles.menuIcon} />
-                    </TouchableOpacity>
-                    <Image source={require('../images/homepage_pic.png')} style={styles.image} />
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
+  },
+  sliderContainer: {
+    backgroundColor: 'white',
+    marginTop: 0,
+    paddingTop: 20,
+    paddingBottom: 10,
+  },
+  sliderTitle: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    marginBottom: 10,
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  itemContainer: {
+    marginLeft: 20,
+    marginRight: 20,
+  },
+  image: {
+    width: 250,
+    height: 150,
+    resizeMode: 'contain',
+    borderRadius: 20,
+  },
+  title: {
+    textAlign: 'center',
+    fontSize: 12,
+  },
+  spotTitle: {
+    fontSize: 13,
+    color: '#888',
+  },
+  priceTitle: {
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  parkingPriceContainer: {
+    margin: 10,
+  },
+  priceContainer: {
+    backgroundColor: 'white',
+    borderRadius: 5,
+    margin: 5,
+    padding: 10,
+  },
+  subtitle: {
+    textAlign: 'center',
+    color: '#888',
+  },
+  icon: {
+    width: 40,
+    height: 40,
+    marginRight: 10,
+    borderRadius: 5,
+  },
+  waketechIcon: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    justifyContent: 'space-between',
+  },
+  titleIconsContainer: {
+    flexDirection: 'row',
+  },
+  titleIconContainer: {
+    padding: 5,
+  },
+  titleIcon: {
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+  },
+  featuredContainer: {
+    margin: 10,
+  },
+  featuredTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  campus: {
+    width: '100%',
+    height: '50%',
+    borderRadius: 10,
+  },
+});
 
-                    {/* Navigation Bar */}
-                    <View style={styles.navigationBar}>
-                        <TouchableOpacity onPress={() => navigation.navigate('ParkingSpots')} style={styles.navItem}>
-                            <Image source={require('../images/mps.png')} style={styles.navIcon} />
-                            <Text style={styles.navText}>My Parking Spots</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('Navigation')} style={styles.navItem}>
-                            <Image source={require('../images/pinpoint.png')} style={styles.navIcon} />
-                            <Text style={styles.navText}>Find Parking Spot</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => navigation.navigate('Payments')} style={styles.navItem}>
-                            <Image source={require('../images/pi.png')} style={styles.navIcon} />
-                            <Text style={styles.navText}>Payments</Text>
-                        </TouchableOpacity>
-                    </View>
-
-                    {/* Title */}
-                    <View style={styles.titleContainer}>
-                        <Image source={require('../assets/icon.png')} style={styles.icon} />
-                        <Text style={styles.titleText}>Cheapest/Closest Parking Spots</Text>
-                    </View>
-
-                    {/* Toggle Buttons */}
-                    <View style={styles.toggleButtons}>
-                        <Text style={styles.toggleText}>Cheapest</Text>
-                        <Text style={styles.toggleText}>Closest</Text>
-                        <View style={styles.titleIconsContainer}>
-                            <TouchableOpacity style={styles.titleIconContainer}>
-                                <Image source={require('../assets/magnifying-glass.png')} style={styles.titleIcon} />
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.titleIconContainer}>
-                                <Image source={require('../assets/three-vertical-dots.png')} style={styles.titleIcon} />
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-                    {/* Parking Options */}
-                    <View style={styles.parkingOptions}>
-                        <View style={styles.option}>
-                            <View>
-                                <Text style={styles.optionText}>$10 - $15</Text>
-                                <Text style={styles.optionDescription}>Building 1</Text>
-                            </View>
-                            <View>
-                                <Text style={styles.optionText}>$20 - $25</Text>
-                                <Text style={styles.optionDescription}>Main Office</Text>
-                            </View>
-                        </View>
-                        <View style={styles.option}>
-                            <View style={styles.oval}>
-                                <Text style={styles.optionText}>$10 - $15</Text>
-                                <Text style={styles.optionDescription}>Building 2</Text>
-                            </View>
-                            <View>
-                                <Text style={styles.optionText}>$10 - $15</Text>
-                                <Text style={styles.optionDescription}>Building 3</Text>
-                            </View>
-                        </View>
-                    </View>
-
-                    {/* Contact Us */}
-                    <TouchableOpacity onPress={() => navigation.navigate('Support')} style={styles.contactContainer}>
-                        <Image source={require('../images/si.png')} style={styles.supportIcon} />
-                    </TouchableOpacity>
-                </View>
-            </ImageBackground>
-        </DrawerLayoutAndroid>
-    );
-}
-
-export default HomePage;
+export default HomepageFix;
