@@ -24,7 +24,7 @@ export default function LoginScreen() {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
 
       // After successful login, you can navigate to the homepage
-      navigation.navigate('Home');
+      navigation.navigate('HomePage');
     } catch (error) {
       console.error('Login error:', error.message);
       // Handle login error
