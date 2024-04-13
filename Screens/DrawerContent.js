@@ -21,8 +21,9 @@ const DrawerContent = ({ navigation, drawerRef }) => {
   };
 
   return (
-    <View>
+    <View style={styles.drawerContent}>
       <View style={styles.drawerHeader}>
+        <Image source={require('../images/default-pfp.png')} style={styles.defaultIcon} />
         <Text style={styles.drawerTitle}>Hi, {username}!</Text>
         <Text style={styles.drawerSubtext}>{user.email}</Text>
       </View>
@@ -35,9 +36,9 @@ const DrawerContent = ({ navigation, drawerRef }) => {
           <Text style={styles.drawerItems}>Settings</Text>
         </TouchableOpacity>
         <View style={styles.drawerSeperator}/>
-        <TouchableOpacity style={styles.drawerButtons} onPress={() => Logout()}>
-          <Text style={styles.drawerItems} >Logout</Text>
-        </TouchableOpacity>
+          <TouchableOpacity style={styles.drawerButtons} onPress={() => Logout()}>
+            <Text style={styles.drawerItems}>Logout</Text>
+          </TouchableOpacity>
         <View style={styles.drawerSeperator}/>
       </View>
     </View>

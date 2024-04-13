@@ -154,8 +154,8 @@ titleIcon: {
   },
   drawerContainer: {
     flex: 1,
-    paddingTop: 50,
-    paddingLeft: 20,
+    //paddingTop: 50,
+    //paddingLeft: 20,
     backgroundColor: '#F5F5F5',
   },
   menuIconContainer: {
@@ -249,35 +249,49 @@ titleIcon: {
     flex: 1,
     // paddingTop: 50,
     // paddingLeft: 20,
-    // paddingTop: 50,
-    // paddingLeft: 20,
     height: '100%',
   },
+  defaultIcon: {
+    width: '30%',
+    height: '80%',
+    resizeMode: 'contain',
+  }, 
+  drawerContent: {
+    backgroundColor: 'white',
+  },
   drawerHeader: {
-    flex: 0,
-    height: "36%",
-    paddingLeft: 20,
-    paddingTop: 30,
-    paddingBottom: 30,
-    paddingRight: 20,
+    height: '50%',
+    paddingBottom: 50,
     backgroundColor: '#b9dbe3',
+    alignItems: 'center',
   },
   drawerTitle: {
     fontSize: 24,
     fontWeight: 'bold',
+    color: 'white',
+  },
+  drawerItems: {
+    fontSize: 20,
+    fontWeight: 'bold',
     color: 'black',
+    padding: 20
+  },
+  drawerButtons: {
+  },
+  drawerSubtext: {
+    fontSize: 14,
+    color: 'white',
+    marginBottom: 20,
+  },
+  drawerSeperator: {
+    borderColor: '#b9dbe3',
+    borderWidth: 1,
+    marginLeft: 15,
+    marginRight: 15,
   },
   logoutLink: {
     color: 'blue',
     textDecorationLine: 'underline',
-  },
-  drawerButtons: {
-  },
-  drawerSeperator: {
-    borderColor: 'lightgrey',
-    borderWidth: 1,
-    marginLeft: 15,
-    marginRight: 15,
   },
   menuIconContainer: {
     position: 'absolute',
@@ -389,21 +403,29 @@ titleIcon: {
 // Profile Page
   profileContainer: {
     flex: 1,
+  },
+  menu: {
+    marginTop: 24,
+  },
+  profImage: {
+    width: 200, 
+    height: 200, 
+    overflow: 'hidden',
+  },
+  dm: {
+    position: 'absolute',
+    backgroundColor: 'white',
+    borderRadius: 20,
+    top: 30,
+    left: 10,
+    width: 40,
+    height: 40,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  userInfo: {
+  infoContainer: {
+    alignSelf: 'center',
     alignItems: 'center',
-  },
-  toggleButtonProfile: {
-    marginTop: 10,
-    color: 'blue',
-    textDecorationLine: 'underline',
   },
 // Save Parking List Page
   ParkingListContainer: {
