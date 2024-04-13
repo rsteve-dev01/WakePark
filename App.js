@@ -9,7 +9,8 @@ import Onboarding from './Screens/Onboarding/Onboarding';
 import Homepage from './Screens/Homepage';
 import LoginScreen from './Screens/Login'; // Import Login screen
 import Profile from './Screens/Profile';
-import ParkingSpots from './Screens/ParkingSpots';
+import ParkingSpots from './Screens/ParkingSpots'; // Change Later
+import Parking from './Screens/Parking';
 import NavigationPage from './Screens/NavigationPage';
 import Payments from './Screens/Payments';
 import ForgotPassword from './Screens/Forgot-Password';
@@ -47,7 +48,7 @@ const HomepageTabs = () => {
       />
       <Tab.Screen
         name="Parking"
-        component={ParkingSpots}
+        component={Parking}
         options={{
           tabBarLabel: ({ color }) => (
             <Text style={{ color: color, fontSize: 10, marginTop: -7 }}>Parking</Text>
