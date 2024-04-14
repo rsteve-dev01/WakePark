@@ -1,28 +1,71 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, ImageBackground, Image } from 'react-native';
-import { styles } from '../StyleSheet';
+import { View, Text, ImageBackground, Image, StyleSheet } from 'react-native';
 
-const SavedPayments = ({ navigation, route }) => {
-  const { cardDescription } = route.params;
-
-  const handleGoToHomePage = () => {
-    navigation.navigate('HomePage');
-  };
-
+const SavedPayments = ({ navigation }) => {
   return (
-    <ImageBackground source={require('../assets/bg1.png')} style={styles.background}>
+    <ImageBackground source={require('../assets/bg2.png')} style={styles.backgroundImage}>
       <View style={styles.container}>
         <View style={styles.titleContainer}>
-          <Image source={require('../assets/transparent_icon.png')} style={styles.icon} />
-          <Text style={styles.titleText}>Saved Payments</Text>
+          <Text style={styles.titleText}>Previous Payment Methods</Text>
         </View>
-        <Text style={styles.savedCardText}>{cardDescription}</Text>
-        <TouchableOpacity style={styles.homeButton} onPress={handleGoToHomePage}>
-          <Text style={styles.homeButtonText}>Go to Homepage</Text>
-        </TouchableOpacity>
+        <View style={styles.cardContainer}>
+          <Image source={require('../assets/mastercard.png')} style={styles.cardImage} />
+          <View style={styles.cardTextContainer}>
+            <Text style={styles.cardText}>Mastercard ending with 1234</Text>
+          </View>
+        </View>
       </View>
     </ImageBackground>
   );
 };
+
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  titleContainer: {
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius: 5,
+    marginBottom: 20,
+  },
+  titleText: {
+    fontSize: 24,
+    color: '#87CEFA',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  cardContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+    padding: 20,
+    borderRadius: 20,
+    alignItems: 'center',
+  },
+  cardImage: {
+    width: 100,
+    height: 60,
+    resizeMode: 'contain',
+    marginRight: 20,
+  },
+  cardTextContainer: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 10,
+  },
+  cardText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+});
 
 export default SavedPayments;

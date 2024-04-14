@@ -20,6 +20,7 @@ import PreviousParking from './Screens/PreviousParking';
 import SavedParkingList from './Screens/SavedParkingList';
 import SavedPayments from './Screens/SavedPayments';
 import Chat from './Screens/Chat';
+import MakePayment from './Screens/MakePayment';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -98,6 +99,7 @@ const App = () => {
           <Stack.Screen name="Profile" component={Profile} />
           <Stack.Screen name="Payments" component={Payments} />
           <Stack.Screen name="SavedPayments" component={SavedPayments} />
+          <Stack.Screen name="MakePayment" component={MakePayment} />
           <Stack.Screen name="Navigation" component={NavigationPage} />
           <Stack.Screen name="Chat" component={Chat} />
         </Stack.Navigator>
