@@ -6,7 +6,7 @@ import axios from 'axios';
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const OPENAI_API_URL = 'https://api.openai.com/v1/engines/davinci/completions';
-  const OPENAI_API_KEY = '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'; // Make sure to secure your API key appropriately
+  const OPENAI_API_KEY = ''; 
 
   useEffect(() => {
     loadInitialMessages();
