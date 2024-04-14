@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
-  const OPENAI_API_URL = 'https://api.openai.com/v1/engines/davinci/completions';
+  const OPENAI_API_URL = '';
   const OPENAI_API_KEY = ''; 
 
   useEffect(() => {
