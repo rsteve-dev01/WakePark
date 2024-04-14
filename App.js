@@ -19,6 +19,7 @@ import AssignedParking from './Screens/AssignedParking';
 import PreviousParking from './Screens/PreviousParking';
 import SavedParkingList from './Screens/SavedParkingList';
 import SavedPayments from './Screens/SavedPayments';
+import Chat from './Screens/Chat';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -98,6 +99,7 @@ const App = () => {
           <Stack.Screen name="Payments" component={Payments} />
           <Stack.Screen name="SavedPayments" component={SavedPayments} />
           <Stack.Screen name="Navigation" component={NavigationPage} />
+          <Stack.Screen name="Chat" component={Chat} />
         </Stack.Navigator>
       </NavigationContainer>
     );
