@@ -5,9 +5,7 @@ import axios from 'axios';
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
-  const OPENAI_API_URL = '';
-  const OPENAI_API_KEY = ''; 
-
+ 
   useEffect(() => {
     loadInitialMessages();
   }, []);

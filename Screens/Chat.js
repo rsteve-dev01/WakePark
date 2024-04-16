@@ -1,79 +1,67 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { GiftedChat } from 'react-native-gifted-chat';
-import { useNavigation } from '@react-navigation/native';
-import axios from 'axios';
+import gpt from '../src/api/gpt';
 
-export default function Chat() {
+const Chat = () => {
   const [messages, setMessages] = useState([]);
-  const OPENAI_API_URL = '';
-  const OPENAI_API_KEY = ''; // Make sure to secure your API key appropriately
 
   useEffect(() => {
-    loadInitialMessages();
+    loadWelcomeMessage();
   }, []);
 
-  const loadInitialMessages = () => {
-    const welcomeMessage = {
+  const loadWelcomeMessage = () => {
+    const initialMessage = {
       _id: 0,
-      text: "Welcome to the wakepark support page! We're here to help you with any questions or concerns you may have. Please let us know how we can assist you today.",
+      text: "Hello! Welcome to our support service. How can we assist you today?",
       createdAt: new Date(),
       user: {
         _id: 2,
-        name: "Support Bot",
+        name: "Assistant",
         avatar: 'https://i.pravatar.cc/300?img=4'
       },
       quickReplies: {
         type: 'radio',
         keepIt: false,
         values: [
-          { title: 'Pricing Inquiry', value: 'pricing' },
-          { title: 'find a parking spot', value: 'find a parking spot' },
-          { title: 'privacy,safety and security', value: 'privacy,safety and security'},
-          { title: 'Support Request', value: 'support' },
-          { title: 'Talk to an Agent', value: 'agent' },
+          { title: 'Inquiry About Prices', value: 'pricing' },
+          { title: 'Locate Parking', value: 'find a parking spot' },
+          { title: 'Safety and Security Info', value: 'privacy,safety and security'},
+          { title: 'Request Support', value: 'support' },
+          { title: 'Connect with a Representative', value: 'agent' },
         ],
       },
     };
-    setMessages([welcomeMessage]);
+    setMessages([initialMessage]);
   };
 
-  const onQuickReply = replies => {
+  const handleQuickReply = (replies) => {
     replies.forEach(reply => {
-      generateGPTContent(reply.value);
+      fetchResponse(reply.value);
     });
   };
 
-  const generateGPTContent = async (topic) => {
-    const prompt = `Generate a detailed response for a customer asking about "${topic}"`;
+  const fetchResponse = async (query) => {
+    const prompt = `Please provide detailed information on "${query}" for a customer inquiry.`;
     try {
-      const response = await axios.post(
-        OPENAI_API_URL,
-        {
-          prompt: prompt,
-          max_tokens: 150
-        },
-        {
-          headers: {
-            'Authorization': `Bearer ${OPENAI_API_KEY}`,
-            'Content-Type': 'application/json'
-          }
-        }
-      );
-      const gptText = response.data.choices[0].text.trim();
-      const newMessage = {
+      const response = await gpt.post('', {
+        prompt,
+        max_tokens: 150
+      });
+      const responseText = response.data.choices[0].text.trim();
+      const followUpMessage = {
         _id: Math.random().toString(36).substring(7),
-        text: gptText,
+        text: responseText,
         createdAt: new Date(),
         user: {
           _id: 2,
-          name: "GPT-3",
+          name: "Assistant",
           avatar: 'https://i.pravatar.cc/300?img=5'
         }
       };
-      setMessages(previousMessages => GiftedChat.append(previousMessages, [newMessage]));
+      setMessages(previousMessages => GiftedChat.append(previousMessages, [followUpMessage]));
     } catch (error) {
-      console.error('Error generating GPT-3 content:', error);
-      // Handle errors appropriately here
+      console.error('Failed to fetch response from GPT-3:', error);
+      // Proper error handling here
     }
   };
 
@@ -81,8 +69,10 @@ export default function Chat() {
     <GiftedChat
       messages={messages}
       onSend={newMessages => setMessages(GiftedChat.append(messages, newMessages))}
-      onQuickReply={onQuickReply}
+      onQuickReply={handleQuickReply}
       user={{ _id: 1, name: "User", avatar: 'https://i.pravatar.cc/300' }}
     />
   );
 }
+
+export default Chat;
