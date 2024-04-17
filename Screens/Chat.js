@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { GiftedChat, InputToolbar, Composer, Send } from 'react-native-gifted-chat';
+import { GiftedChat, InputToolbar, Composer, Send,MessageText } from 'react-native-gifted-chat';
 import { View, Text, TouchableOpacity,Image } from 'react-native';
 import axios from 'axios';
 import gpt from '../src/api/gpt'; // Import the OpenAI GPT-3 API
@@ -108,7 +108,15 @@ const Chat = () => {
   if (!isOpen) return null;
 
 
-
+    const renderMessageText = (props) => (
+        <MessageText
+            {...props}
+            textStyle={{
+                left: { color: '#540F6D' }, // Warm color for the text
+                right: { color: '#ffffff'} // Adjust the color for your own use case
+            }}
+        />
+    );
     const renderInputToolbar = (props) => (
         <InputToolbar
             {...props}
@@ -140,7 +148,7 @@ const Chat = () => {
     const renderSend = (props) => (
         <Send {...props}>
             <View style={{ marginRight: 10, marginBottom: 5 }}>
-                <Ionicons name="send" size={30} color="#08326F" />
+                <Ionicons name="send" size={30} color="#1F56A6" />
             </View>
         </Send>
     );
@@ -153,7 +161,7 @@ const Chat = () => {
         </View>
         
         <TouchableOpacity onPress={goToHome}>
-          <Ionicons name="close" size={24} color="black" />
+          <Ionicons name="close-circle" size={46} color="#1F56A6" />
         </TouchableOpacity>
       </View>
       <GiftedChat
@@ -162,6 +170,7 @@ const Chat = () => {
         onQuickReply={handleQuickReply}
         renderInputToolbar={renderInputToolbar}
         renderComposer={renderComposer}
+        renderMessageText={renderMessageText}
         renderSend={renderSend}
         user={{ _id: 1, name: "User", avatar: 'https://i.pravatar.cc/300' }}
       />
