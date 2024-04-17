@@ -62,7 +62,7 @@ const Chat = () => {
     try {
       const response = await gpt.post('', {
         prompt,
-        max_tokens: 150
+        max_tokens:50
       });
       const responseText = response.data.choices[0].text.trim();
       const followUpMessage = {
@@ -78,12 +78,13 @@ const Chat = () => {
       setMessages(previousMessages => GiftedChat.append(previousMessages, [followUpMessage]));
     } catch (error) {
       console.error('Failed to fetch response:', error);
+      console.log(error.config);
     }
   };
 
   const requestChatAssignment = async () => {
     try {
-      const res = await axios.post('http://localhost:3000/new-chat');
+      const res = await axios.post('http://192.168.0.178:3000/new-chat');
       const newMessage = {
         _id: Math.random().toString(36).substring(7),
         text: `A representative will join you shortly. You have been connected to team member ${res.data.member} who is ready to assist you.`,
@@ -98,6 +99,7 @@ const Chat = () => {
       console.log(`Chat assigned to team member ${res.data.member} with ${res.data.activeChats} active chats.`);
     } catch (error) {
       console.error('Failed to assign chat:', error);
+      console.log(error.config);
     }
   };
 
