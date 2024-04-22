@@ -21,7 +21,7 @@ const assignChat = () => {
     let minChats = Infinity;
 
     for (let name in teamMembers) {
-        if (teamMembers[name].activeChats < minChats) {
+        if (teamMembers[name] && teamMembers[name].activeChats < minChats) {
             minChats = teamMembers[name].activeChats;
             assignedMember = teamMembers[name];
         }
@@ -35,7 +35,9 @@ const assignChat = () => {
     return null;
 };
 
+
 app.post('/new-chat', (req, res) => {
+    console.log(JSON.stringify(teamMembers, null, 2));
     const assignedMember = assignChat();
     if (assignedMember) {
         res.json({ member: assignedMember.id, activeChats: assignedMember.activeChats });
@@ -44,6 +46,3 @@ app.post('/new-chat', (req, res) => {
     }
 });
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
-});
